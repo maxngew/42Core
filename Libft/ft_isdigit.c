@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 16:25:28 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/13 18:06:20 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/13 17:53:16 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/13 18:09:45 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char *str)
+#include <unistd.h>
+
+int	ft_isdigit(char *str)
 {
 	int	x;
 
@@ -21,25 +23,22 @@ int	ft_isalpha(char *str)
 	}
 	while (str[x] != '\0')
 	{
-		if ((str[x] >= 'A' && str[x] <= 'Z')
-			|| (str[x] >= 'a' && str[x] <= 'z'))
+		if (!(str[x] >= '0' && str[x] <= '9'))
 		{
-			x++;
-		}
-		else
 			return (0);
+		}
+		x++;
 	}
 	return (1);
 }
 
-#include <unistd.h>
 #include <stdio.h>
 
 int	main()
 {
-	printf("%d\n", ft_isalpha("Hello"));
-	printf("%d\n", ft_isalpha("12345"));
-	printf("%d\n", ft_isalpha("He110"));
-	printf("%d\n", ft_isalpha("!@#$%"));
-	printf("%d\n", ft_isalpha(" "));
+	printf("%d\n", ft_isdigit("12345"));
+	printf("%d\n", ft_isdigit("abcde"));
+	printf("%d\n", ft_isdigit("123de"));
+	printf("%d\n", ft_isdigit("!@#$%"));
+	printf("%d\n", ft_isdigit(" "));
 }
