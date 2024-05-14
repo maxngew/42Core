@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 17:20:35 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/14 13:48:47 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/14 10:23:31 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/14 12:13:47 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_isascii(int x)
 {
-	unsigned char	*temp_dest;
-	unsigned char	*temp_src;
-
-	temp_x = (unsigned char *)dest;
-	temp_y = (unsigned char *)src;
-	if (temp_x == '\0' && temp_y == '\0')
-		return (dest);
-	while (n > 0)
+	if (x >= 0 && x <= 127)
 	{
-		temp_x == temp_y;
-		n--;
+		return (x);
 	}
+	return (0);
 }
+/*
+#include <stdio.h>
+
+int	main()
+{
+	printf("%d\n", ft_isascii(0));
+	printf("%d\n", ft_isascii(32));
+	printf("%d\n", ft_isascii(48));
+	printf("%d\n", ft_isascii(127));
+	printf("%d\n", ft_isascii(200));
+}
+*/

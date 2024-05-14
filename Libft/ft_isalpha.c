@@ -6,40 +6,32 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:25:28 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/13 18:06:20 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/14 12:08:40 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int x)
 {
-	int	x;
-
-	x = 0;
-	if (str[x] == '\0')
+	if ((x >= 'A' && x <= 'Z')
+		|| (x >= 'a' && x <= 'z'))
 	{
+		return (x);
+	}
+	else
 		return (0);
-	}
-	while (str[x] != '\0')
-	{
-		if ((str[x] >= 'A' && str[x] <= 'Z')
-			|| (str[x] >= 'a' && str[x] <= 'z'))
-		{
-			x++;
-		}
-		else
-			return (0);
-	}
-	return (1);
 }
-
+/*
 #include <unistd.h>
 #include <stdio.h>
 
 int	main()
 {
-	printf("%d\n", ft_isalpha("Hello"));
-	printf("%d\n", ft_isalpha("12345"));
-	printf("%d\n", ft_isalpha("He110"));
-	printf("%d\n", ft_isalpha("!@#$%"));
-	printf("%d\n", ft_isalpha(" "));
+	printf("%d\n", ft_isalpha(65));
+	printf("%d\n", ft_isalpha(97));
+	printf("%d\n", ft_isalpha(48));
+	printf("%d\n", ft_isalpha(33));
+	printf("%d\n", ft_isalpha(32));
+	printf("%d\n", ft_isalpha(200));
+	printf("%d\n", ft_isalpha(36));
 }
+*/

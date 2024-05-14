@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 17:20:35 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/14 13:48:47 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/14 13:09:30 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/14 13:27:58 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_bzero(void *str, size_t n)
 {
-	unsigned char	*temp_dest;
-	unsigned char	*temp_src;
+	char	*temp_x;
 
-	temp_x = (unsigned char *)dest;
-	temp_y = (unsigned char *)src;
-	if (temp_x == '\0' && temp_y == '\0')
-		return (dest);
+	temp_x = (char *)str;
 	while (n > 0)
 	{
-		temp_x == temp_y;
+		*(temp_x++) = 0;
 		n--;
 	}
+}
+
+#include <string.h>
+#include <stdio.h>
+
+int	main()
+{
+	char str[50] = "Hello World!";
+	printf("Before bzero: %s\n", str);
+
+	ft_bzero(str + 5, 5);
+	printf("After bzero: %s\n", str);
+	return (0);
 }
