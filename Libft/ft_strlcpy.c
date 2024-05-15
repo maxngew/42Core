@@ -1,40 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 18:40:54 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/15 19:38:10 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/15 17:22:45 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/15 19:39:31 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	*ft_memset(void *str, int x, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
-	unsigned char	*temp_x;
-	
-	temp_x = (unsigned char *)str;
-	while (n > 0)
+	size_t	x;
+
+	x = 0;
+	if (destsize == 0)
+		return (0);
+	while (x + 1 < destsize && src[x] != '\0')
 	{
-		*(temp_x++) = (unsigned char) x;
-		n--;
+		dest[x] = src[x];
+		x++;
 	}
-	return (str);
+	if (destsize > 0)
+		dest[x] = '\0';
+	if (src[0] == '\0')
+		return (0);
+	while (src[x] != '\0')
+		x++;
+	return (x);
 }
 /*
 #include <stdio.h>
-#include <string.h>
 
 int	main()
 {
-	char str[50] = "Hello & Welcome World!";
-	printf("Before memset: %s\n", str);
+	char src[] = "Hello World!";
+	char dest[15];
+	size_t len = ft_strlcpy(dest, src, sizeof(dest));
 
-	ft_memset(str + 6, '.', 9);
-	printf("After memset: %s\n", str);
+	printf("Copied String: %s\n", dest);
+	printf("Length of Source String: %zu\n", len);
 	return (0);
 }
 */

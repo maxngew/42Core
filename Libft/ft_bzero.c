@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:09:30 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/14 13:27:58 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/15 19:38:29 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_bzero(void *str, size_t n)
 		n--;
 	}
 }
-
+/*
 #include <string.h>
 #include <stdio.h>
 
@@ -36,3 +36,4 @@ int	main()
 	printf("After bzero: %s\n", str);
 	return (0);
 }
+*/
