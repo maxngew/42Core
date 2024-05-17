@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:20:35 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/15 19:38:47 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:23:09 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	if (!dest || !src)
 		return (dest);
-
 	temp_dest = (unsigned char *)dest;
 	temp_src = (unsigned char *)src;
 	while (n > 0)

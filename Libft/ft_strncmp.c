@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:38:42 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/15 23:08:10 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:25:51 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 		if ((unsigned char) str1[x] != (unsigned char) str2[x])
 		{
 			return ((unsigned char) str1[x] - (unsigned char) str2[x]);
-		}x++;
+		}
+		x++;
 	}
 	return (0);
 }

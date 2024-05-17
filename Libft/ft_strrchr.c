@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 20:59:10 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/15 21:32:54 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:24:07 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strrchr(const char *str, int c)
 {
 	unsigned int	x;
-	char	y;
-	char *result;
+	char			y;
+	char			*result;
 
 	x = 0;
 	y = (char) c;
@@ -26,7 +26,8 @@ char	*ft_strrchr(const char *str, int c)
 		if (str[x] == y)
 		{
 			result = ((char *) &str[x]);
-		}x++;
+		}
+		x++;
 	}
 	if (c == '\0')
 	{

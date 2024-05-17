@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 18:40:54 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/15 19:38:10 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:25:19 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *str, int x, size_t n)
 {
 	unsigned char	*temp_x;
-	
+
 	temp_x = (unsigned char *)str;
 	while (n > 0)
 	{

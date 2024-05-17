@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/16 16:43:50 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:24:52 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 {
 	unsigned char	*str_x;
 	unsigned char	y;
-	size_t	x;
+	size_t			x;
 
 	str_x = (unsigned char *)str;
 	y = (unsigned char)c;
@@ -26,7 +26,8 @@ void	*ft_memchr(const void *str, int c, size_t n)
 		if (str_x[x] == y)
 		{
 			return ((void *) &str_x[x]);
-		}x++;
+		}
+		x++;
 	}
 	return (NULL);
 }

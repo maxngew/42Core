@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:56:10 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/16 17:10:31 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:21:42 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
 	unsigned char	*str_x;
 	unsigned char	*str_y;
-	size_t	x;
+	size_t			x;
 
 	str_x = (unsigned char *)str1;
 	str_y = (unsigned char *)str2;
@@ -26,7 +26,8 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 		if ((unsigned char)str_x[x] != (unsigned char)str_y[x])
 		{
 			return ((unsigned char)str_x[x] - (unsigned char)str_y[x]);
-		}x++;
+		}
+		x++;
 	}
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 22:12:13 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/17 00:32:30 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:39:26 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	isspace(int	x)
+int	isspace(int x)
 {
 	if ((x >= 9 && x <= 13) || x == 32)
 		return (1);
@@ -42,7 +42,8 @@ int	ft_atoi(const char *str)
 		results *= 10;
 		results += str[x] - 48;
 		x++;
-	}results *= sign;
+	}
+	results *= sign;
 	return (results);
 }
 /*
