@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jngew <jngew@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/17 13:24:52 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/19 16:26:01 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	}
 	return (NULL);
 }
-/*
+
 #include <stdio.h>
 
 int	main()
@@ -47,4 +47,3 @@ int	main()
 	printf("String after %c is %s\n", c, results);
 	return(0);
 }
-*/
