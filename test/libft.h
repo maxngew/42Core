@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 18:36:19 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/22 01:20:22 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/20 22:17:01 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/20 22:17:58 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+#define LIBFT_H
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	x;
+int	ft_isalpha(int x);
 
-	x = 0;
-	while (str[x] != '\0')
-	{
-		x++;
-	}
-	return (x);
-}
+#endif
