@@ -206,6 +206,39 @@ void	test_split()
 	printf("\n");
 }
 
+void	test_itoa()
+{
+	printf("Testing ft_itoa:\n");
+
+	int number = 12345;
+	char *result = ft_itoa(number);
+	printf("Testing1: Convert '%d' into '%s'\n", number, result);
+	free(result);
+
+	int number1 = -9876;
+	char *result1 = ft_itoa(number1);
+	printf("Testing2: Convert '%d' into '%s'\n", number1, result1);
+	free(result1);
+
+	int number2 = 0;
+	char *result2 = ft_itoa(number2);
+	printf("Testing3: Convert '%d' into '%s'\n", number2, result2);
+	free(result2);
+
+	int number3 = 00012345;
+	char *result3 = ft_itoa(number3);
+	printf("Testing4: Convert '%d' into '%s'\n", number3, result3);
+	free(result3);
+
+	int number4 = INT_MAX;
+	char *result4 = ft_itoa(number4);
+	printf("Testing5: Convert '%d' into '%s'\n", number4, result4);
+	free(result4);
+
+	printf("Testing ft_itoa: DONE\n");
+	printf("\n");
+}
+
 int	main()
 {
 	test_isalpha();
@@ -215,5 +248,6 @@ int	main()
 	test_strjoin();
 	test_strtrim();
 	test_split();
+	test_itoa();
 	return (0);
 }

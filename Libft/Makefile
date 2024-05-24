@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 22:05:08 by jngew             #+#    #+#              #
-#    Updated: 2024/05/23 22:46:10 by jngew            ###   ########.fr        #
+#    Updated: 2024/05/24 16:16:56 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-SRC = ft_isalpha.c ft_strlcpy.c ft_strlen.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c
+SRC = ft_isalpha.c ft_strlcpy.c ft_strlen.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
