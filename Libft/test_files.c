@@ -30,6 +30,39 @@ void	test_strlen()
 	printf("\n");
 }
 
+void	test_strlcpy()
+{
+	printf("Testing ft_strlcpy:\n");
+
+	char dest[25];
+	const char	*src = "Hello World!";
+	size_t destsize = sizeof(dest);
+
+	printf("Testing src = 'Hello World!'\n");
+
+	size_t result = ft_strlcpy(dest, src, destsize);
+    printf("Testing1: Result = %zu, Dest = '%s'\n", result, dest);
+
+	const char *empty_src = "";
+    result = ft_strlcpy(dest, empty_src, destsize);
+    printf("Testing2: Result = %zu, Dest = '%s'\n", result, dest);
+
+    char empty_dest[1];
+    result = ft_strlcpy(empty_dest, src, sizeof(empty_dest));
+    printf("Testing3: Result = %zu, Dest = '%s'\n", result, empty_dest);
+
+	char small_dest[5];
+    result = ft_strlcpy(small_dest, src, sizeof(small_dest));
+    printf("Testing4: Result = %zu, Dest = '%s'\n", result, small_dest);
+
+    char zero_dest[1];
+    result = ft_strlcpy(zero_dest, src, sizeof(zero_dest));
+    printf("Testing5: Result = %zu, Dest = '%s'\n", result, zero_dest);
+
+	printf("Testing ft_strlcpy: DONE\n");
+	printf("\n");
+}
+
 void	test_substr()
 {
 	printf("Testing ft_substr:\n");
@@ -63,10 +96,124 @@ void	test_substr()
 	printf("\n");
 }
 
+void	test_strjoin()
+{
+	printf("Testing ft_strjoin:\n");
+
+	printf("Testing1, str1:\"Hello\" str2:\"World\": %s\n", ft_strjoin("Hello", "World"));
+	printf("Testing2, str1:\"Hello\" str2:\"\": %s\n", ft_strjoin("Hello", ""));
+	printf("Testing3, str1:\"\" str2:\"\" %s\n", ft_strjoin("", ""));
+	printf("Testing4: str1:\"\" str2:\"Hello\" %s\n", ft_strjoin("", "Hello"));
+
+	printf("Testing ft_strjoin:DONE\n");
+	printf("\n");
+}
+
+void	test_strtrim()
+{
+	printf("Testing ft_strtrim:\n");
+
+	const char	*s1;
+	const char	*set;
+	char		*res;
+
+	s1 = "  Hello  World!  ";
+	set = " ";
+	res = ft_strtrim(s1, set);
+	printf("Testing1: '%s' trimmed is '%s'\n", s1, res);
+	free(res);
+
+	s1 = "?Hello World!?";
+	set = "?";
+	res = ft_strtrim(s1, set);
+	printf("Testing2: '%s' trimmed is '%s'\n", s1, res);
+	free(res);
+
+	s1 = "	";
+	set = " ";
+	res = ft_strtrim(s1, set);
+	printf("Testing3: '%s' trimmed is '%s'\n", s1, res);
+	free(res);
+
+	s1 = "Hello World";
+	set = "xyz";
+	res = ft_strtrim(s1, set);
+	printf("Testing4: '%s' trimmed is '%s'\n", s1, res);
+	free(res);
+
+	s1 = "";
+	set = "";
+	res = ft_strtrim(s1, set);
+	printf("Testing5: '%s' trimmed is '%s'\n", s1, res);
+	free(res);
+
+	s1 = "Hello, World";
+	set = ",";
+	res = ft_strtrim(s1, set);
+	printf("Testing5: '%s' trimmed is '%s'\n", s1, res);
+	free(res);
+
+	printf("Testing ft_strtrim: DONE\n");
+	printf("\n");
+}
+
+void	test_split()
+{
+	char **result;
+
+	printf("Testing ft_split:\n");
+
+	result = ft_split("Hello,World,This,Is,Me", ',');
+	printf("Testing1: 'Hello,World,This,Is,Me' & ','\n");
+	for (int x = 0; result[x] != NULL; x++)
+	{
+		printf("%s", result[x]);
+		if (result[x + 1] != NULL)
+			printf(" ");
+		free(result[x]);
+	}
+	free(result);
+	printf("\n");
+
+	result = ft_split("Hello", ',');
+	printf("Testing2: 'Hello', & ','\n");
+	for (int x = 0; result[x] != NULL; x++)
+    {
+        printf("%s\n", result[x]);
+        free(result[x]);
+    }
+    free(result);
+
+	result = ft_split("", ',');
+	printf("Testing3: ' ', ' '\n");
+	if (result[0] == NULL)
+		printf("Empty String\n");
+	free (result);
+
+	result = ft_split("a,b,c,d,e", ',');
+	printf("Testing4: 'a,b,c,d,e' & ','\n");
+	for (int x = 0; result[x] != NULL; x++)
+    {
+        printf("%s", result[x]);
+		if (result[x + 1] != NULL)
+			printf(" ");	
+        free(result[x]);
+    }
+    free(result);
+	printf("\n");
+
+	printf("Testing ft_split: DONE\n");
+	printf("\n");
+}
+
 int	main()
 {
 	test_isalpha();
 	test_strlen();
+	test_strlcpy();
 	test_substr();
+	test_strjoin();
+	test_strtrim();
+	test_split();
 	return (0);
 }
