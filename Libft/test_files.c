@@ -239,6 +239,62 @@ void	test_itoa()
 	printf("\n");
 }
 
+char function1(unsigned int x, char y) {
+    return (y);
+}
+
+char function2(unsigned int x, char y) {
+    return (y);
+}
+
+char function3(unsigned int x, char y) {
+    return (y);
+}
+
+void	test_strmapi()
+{
+	printf("Testing ft_strmapi:\n");
+
+	char *res1 = ft_strmapi("Hello World!", function1);
+	printf("Testing1: %s\n", res1);
+	free(res1);
+
+	char *res2 = ft_strmapi("", function2);
+	printf("Testing2: %s\n", res2);
+	free(res2);
+	
+	char *res3 = ft_strmapi(NULL, function3);
+	printf("Testing3: %s\n", res3);
+	free(res3);
+
+	printf("Testing ft_strmapi: DONE\n");
+	printf("\n");
+}
+
+void	striteri_func(unsigned int x, char *y){
+	*y = *y + x;
+}
+
+void	test_striteri()
+{
+	printf("Testing ft_striteri:\n");
+
+	char s1[] = "Hello";
+	ft_striteri(s1, striteri_func);
+	printf("Testing1: %s\n", s1);
+
+	char s2[] = "";
+	ft_striteri(s2, striteri_func);
+	printf("Testing2: %s\n", s2);
+
+	char *s3 = NULL;
+	ft_striteri(s3, striteri_func);
+	printf("Testing3: %s\n", s3);
+
+	printf("Testing ft_striteri: DONE\n");
+	printf("\n");
+}
+
 int	main()
 {
 	test_isalpha();
@@ -249,5 +305,7 @@ int	main()
 	test_strtrim();
 	test_split();
 	test_itoa();
+	test_strmapi();
+	test_striteri();
 	return (0);
 }
