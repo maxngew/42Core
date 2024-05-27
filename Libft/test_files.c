@@ -291,33 +291,50 @@ void	test_tolower()
 
 void	test_strchr()
 {
+	printf("Testing ft_strchr:\n");
+
 	const char str[] = "Hello! World!";
 	const char c = ' ';
 	char *ret;
 
 	ret = ft_strchr(str, c);
 	printf("String after %c is - %s\n", c, ret);
+
+	printf("Testing ft_strchr: DONE\n");
+	printf("\n");
 }
 
 void	test_strrchr()
 {
+	printf("Testing ft_strrchr:\n");
+
 	const char str[] = "Hello! World!";
 	const char c = 'o';
 	char *ret;
 
 	ret = ft_strrchr(str, c);
 	printf("String from last %c is: %s\n", c, ret);
+
+	printf("Testing ft_strrchr: DONE\n");
+	printf("\n");
 }
 
 void	test_strncmp()
 {
+	printf("Testing ft_strncmp:\n");
+
 	printf("%d\n", ft_strncmp("Hello", "Hello", 7));
 	printf("%d\n", ft_strncmp("Hello", "He110", 3));
 	printf("%d\n", ft_strncmp("Hello", "World", 5));
+
+	printf("Testing ft_strncmp: DONE\n");
+	printf("\n");
 }
 
 void	test_memchr()
 {
+	printf("Testing ft_memchr:\n");
+
 	const char str[] = "Hello World!";
 	const char c = 'o';
 	char *results;
@@ -327,17 +344,27 @@ void	test_memchr()
 
 	results = ft_memchr(str, c, 3);
 	printf("String after %c is %s\n", c, results);
+
+	printf("Testing ft_memchr: DONE\n");
+	printf("\n");
 }
 
 void	test_memcmp()
 {
+	printf("Testing ft_memcmp:\n");
+
 	printf("The difference is: %d\n", ft_memcmp("Hello", "Hello", 7));
 	printf("The difference is: %d\n", ft_memcmp("Hello", "He110", 5));
 	printf("The difference is: %d\n", ft_memcmp("Hello", "World", 3));
+
+	printf("Testing ft_memcmp: DONE\n");
+	printf("\n");
 }
 
 void	test_strnstr()
 {
+	printf("Testing ft_strnstr:\n");
+
 	const char *hay = "Hello World!";
 	const char *nee = "World";
 	const char *nee1 = "!";
@@ -359,10 +386,14 @@ void	test_strnstr()
 		printf("Found: %s\n", res2);
 	else
 		printf("Not found within the first %zu characters. \n", n1);
+
+	printf("Testing ft_strnstr: DONE\n");
+	printf("\n");
 }
 
 void	test_atoi()
 {
+	printf("Testing ft_atoi:\n");
 	const char *test_cases[] =
 	{
 		"123",
@@ -386,11 +417,14 @@ void	test_atoi()
 		printf("Output: %d\n\n", results);
 		x++;
 	}
-	return (0);
+	printf("Testing ft_atoi: DONE\n");
+	printf("\n");
 }
 
 void	test_calloc()
 {
+	printf("Testing ft_calloc:\n");
+
 	// Test case 1: Allocate memory for 5 integers and initialize to zero
   int *arr1 = (int*)ft_calloc(5, sizeof(int));
 
@@ -417,12 +451,14 @@ void	test_calloc()
   void *arr3 = ft_calloc(large_size, 1);
 
   if (arr3) {
-    printf("Test 3: Unexpected allocation for large size
-	(may indicate overflow issue)\n");
+    printf("Test 3: Unexpected allocation for large size (may indicate overflow issue)\n");
     free(arr3);  // Free the allocated memory (if successful)
   } else {
     printf("Test 3: Allocation failed (expected for large size)\n");
   }
+
+  printf("Testing ft_calloc: DONE\n");
+  printf("\n");
 }
 
 void	test_strdup()

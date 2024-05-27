@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:09:30 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/27 12:46:18 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/28 01:23:04 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_bzero(void *str, size_t n)
 	temp_x = (char *)str;
 	while (n > 0)
 	{
-		*(temp_x++) = 0;
+		*temp_x = 0;
+		temp_x++;
 		n--;
 	}
 }
