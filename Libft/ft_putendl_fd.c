@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 22:55:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/25 22:57:47 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 11:45:54 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putendl_fd(char *s, int fd)
 	int	x;
 
 	x = 0;
-	while (s[x] = '\0')
+	while (s[x])
 	{
 		write (fd, &s[x], 1);
 		x++;

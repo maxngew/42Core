@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 22:12:13 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/20 12:57:53 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 16:52:45 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,3 @@ int	ft_atoi(const char *str)
 	results *= sign;
 	return (results);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	const char *test_cases[] = 
-	{
-		"123",
-        "+456",
-        "-789",
-        "   101",
-        "  +202",
-        "  -303",
-        "  404  ",
-        "  +505abc",
-        "  -606abc",
-        "  707def",
-		NULL
-	};
-
-	int x = 0;
-	while (test_cases[x] != NULL)
-	{
-		printf("Input: %s\n", test_cases[x]);
-		int	results = ft_atoi(test_cases[x]);
-		printf("Output: %d\n\n", results);
-		x++;
-	}
-	return (0);
-}
-*/

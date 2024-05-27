@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:38:42 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/20 12:57:07 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 16:51:33 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,3 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main()
-{
-	printf("%d\n", ft_strncmp("Hello", "Hello", 7));
-	printf("%d\n", ft_strncmp("Hello", "He110", 3));
-	printf("%d\n", ft_strncmp("Hello", "World", 5));
-}
-*/

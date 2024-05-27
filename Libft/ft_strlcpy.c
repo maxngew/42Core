@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 17:22:45 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/23 19:18:36 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 15:46:35 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 
 	x = 0;
 	if (destsize == 0)
-		return (0);
+		return (ft_strlen(src));
 	while (x + 1 < destsize && src[x] != '\0')
 	{
 		dest[x] = src[x];
 		x++;
 	}
-	if (x < destsize)
+	if (destsize != 0)
 		dest[x] = '\0';
 	return (ft_strlen(src));
 }

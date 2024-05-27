@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:16:29 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/20 12:55:14 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 16:17:27 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 		dest[dest_len + x] = '\0';
 	return (dest_len + src_len);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	char dest[20] = "Hello ";
-	char src[] = "World!";
-	size_t destsize = sizeof(dest);
-	size_t result = ft_strlcat(dest, src, destsize);
-	printf("Expected output: %s\n", dest);
-	printf("Expected output length: %zu\n", result);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 19:53:38 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/20 12:55:57 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 16:31:40 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,3 @@ int	ft_tolower(int x)
 		x += 32;
 	return (x);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	char uppercase = 'A';
-	printf("Uppercase: %c\n", uppercase);
-	printf("Lowercase: %c\n", ft_tolower(uppercase));
-}
-*/

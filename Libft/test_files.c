@@ -3,13 +3,71 @@
 void	test_isalpha()
 {
 	printf("Testing ft_alpha:\n");
-	printf("Testing 'A': %d\n", ft_isalpha(65));
-	printf("Testing 'a': %d\n", ft_isalpha(97));
-	printf("Testing '0': %d\n", ft_isalpha(48));
-	printf("Testing '!': %d\n", ft_isalpha(33));
-	printf("Testing ' ': %d\n", ft_isalpha(32));
-	printf("Testing Non-ASCII (200): %d\n", ft_isalpha(200));
+	printf("Testing1 'A': %d\n", ft_isalpha(65));
+	printf("Testing2 'a': %d\n", ft_isalpha(97));
+	printf("Testing3 '0': %d\n", ft_isalpha(48));
+	printf("Testing4 '!': %d\n", ft_isalpha(33));
+	printf("Testing5 ' ': %d\n", ft_isalpha(32));
+	printf("Testing6 Non-ASCII (200): %d\n", ft_isalpha(200));
 	printf("Testing ft_alpha: DONE\n");
+	printf("\n");
+}
+
+void	test_isdigit()
+{
+	printf("Testing ft_isdigit:\n");
+
+	printf("Testing1 (48) is: %d\n", ft_isdigit(48));
+	printf("Testing2 (57) is: %d\n", ft_isdigit(57));
+	printf("Testing3 (58) is: %d\n", ft_isdigit(58));
+	printf("Testing4 (32) is: %d\n", ft_isdigit(32));
+	printf("Testing5 (33) is: %d\n", ft_isdigit(33));
+
+	printf("Testing ft_isdigit: DONE\n");
+	printf("\n");
+}
+
+void	test_isalnum()
+{
+	printf("Testing ft_isalnum:\n");
+
+	printf("Testing1 (48) is: %d\n", ft_isalnum(48));
+	printf("Testing2 (65) is: %d\n", ft_isalnum(65));
+	printf("Testing3 (97) is: %d\n", ft_isalnum(97));
+	printf("Testing4 (32) is: %d\n", ft_isalnum(32));
+	printf("Testing5 (33) is: %d\n", ft_isalnum(33));
+	printf("Testing6 (200) is: %d\n", ft_isalnum(200));
+	printf("Testing7 (0) is: %d\n", ft_isalnum(0));
+
+	printf("Testing ft_isalnum: DONE\n");
+	printf("\n");
+}
+
+void	test_isascii()
+{
+	printf("Testing ft_isascii:\n");
+
+	printf("Testing1 (0) is: %d\n", ft_isascii(0));
+	printf("Testing2 (32) is: %d\n", ft_isascii(32));
+	printf("Testing3 (48) is: %d\n", ft_isascii(48));
+	printf("Testing4 (127) is: %d\n", ft_isascii(127));
+	printf("Testing5 (200) is: %d\n", ft_isascii(200));
+
+	printf("Testing ft_isascii: DONE\n");
+	printf("\n");
+}
+
+void	test_isprint()
+{
+	printf("Testing ft_isprint:\n");
+
+	printf("Testing1 (32) is: %d\n", ft_isprint(32));
+	printf("Testing2 (48) is: %d\n", ft_isalnum(48));
+	printf("Testing3 (97) is: %d\n", ft_isalnum(97));
+	printf("Testing4 (127) is: %d\n", ft_isalnum(127));
+	printf("Testing5 (0) is: %d\n", ft_isalnum(0));
+
+	printf("Testing ft_isprint: DONE\n");
 	printf("\n");
 }
 
@@ -27,6 +85,135 @@ void	test_strlen()
 	const char *str5 = "Hello\nWorld\t!";
 	printf("Testing ft_strlen(\"Hello\\nWorld\\t!\"): %zu\n", ft_strlen(str5));
 	printf("Testing ft_strlen: DONE\n");
+	printf("\n");
+}
+
+void	test_memset()
+{
+	printf("Testing ft_memset:\n");
+
+	char str1[50] = "Hello & Welcome World!";
+	printf("Testing1, before memset: %s\n", str1);
+
+	ft_memset(str1 + 6, '.', 9);
+	printf("Testing1, after memset: %s\n", str1);
+
+	char str2[50] = "Hello & Welcome World!";
+	printf("Testing2, before memset: %s\n", str2);
+
+	ft_memset(str2, 0, 9);
+	printf("Testing2, after memset: %s\n", str2);
+
+	char str3[50] = "Hello & Welcome World!";
+	printf("Testing3, before memset: %s\n", str3);
+
+	ft_memset(str3, 'A', 23);
+	printf("Testing3, after memset: %s\n", str3);
+
+	char str4[50] = "Hello & Welcome World!";
+	printf("Testing4, before memset: %s\n", str4);
+
+	ft_memset(str4 + 5, 'Z', 20);
+	printf("Testing4, after memset: %s\n", str4);
+
+	printf("Testing ft_memset: DONE\n");
+	printf("\n");
+}
+
+void	test_bzero()
+{
+	printf("Testing ft_bzero:\n");
+
+	char str1[50] = "Hello World!";
+	printf("Testing1 before bzero: %s\n", str1);
+
+	ft_bzero(str1 + 5, 5);
+	printf("Testing1 after bzero: %s\n", str1);
+
+	char str2[50] = "Hello World!";
+	printf("Testing2, before bzero: %s\n", str2);
+
+	ft_bzero(str2, 0);
+	printf("Testing2, after bzero: %s\n", str2);
+
+	char str3[50] = "Hello World!";
+	printf("Testing3 before bzero: %s\n", str3);
+
+	ft_bzero(str3, 5);
+	printf("Testing3 after bzero: %s\n", str3);
+
+	printf("Testing ft_bzero: DONE\n");
+	printf("\n");
+}
+
+void	test_memcpy()
+{
+	printf("Testing ft_memcpy:\n");
+
+	char dest1[20] = "Hello World!";
+	char src1[10] = "12345";
+	printf("Testing1, before memcpy: dest = %s, src = %s\n", dest1, src1);
+
+	ft_memcpy(dest1, src1,  5);
+	printf("Testing1, after memcpy: dest = %s\n", dest1);
+
+	char dest2[20] = "Hello World!";
+	char src2[10] = "12345";
+	printf("Testing2, before memcpy: dest = %s, src = %s\n", dest2, src2);
+
+	ft_memcpy(dest2, src2,  0);
+	printf("Testing2, after memcpy: dest = %s\n", dest2);
+
+	char dest3[20] = "Hello World!";
+	char src3[10] = "";
+	printf("Testing3, before memcpy: dest = %s\n", dest3);
+
+	ft_memcpy(dest3, src3,  5);
+	printf("Testing3, after memcpy: dest = %s\n", dest3);
+
+	char dest4[20] = "Hello World!";
+	printf("Testing4, before memcpy: dest %s\n", dest4);
+
+	ft_memcpy(dest4 + 5, dest4,  5);
+	printf("Testing4, after memcpy: dest = %s\n", dest4);
+
+	printf("Testing ft_memcpy: DONE\n");
+	printf("\n");
+}
+
+void	test_memmove()
+{
+	printf("Testing ft_memmove:\n");
+
+	char dest1[20] = "Hello World!";
+	char src1[10] = "12345";
+	printf("Testing1, before memmove: dest = %s, src = %s\n", dest1, src1);
+
+	ft_memmove(dest1, src1,  5);
+	printf("Testing1, after memmove: dest = %s\n", dest1);
+
+	char dest2[20] = "Hello World!";
+	char src2[10] = "12345";
+	printf("Testing2, before memmove: dest = %s, src = %s\n", dest2, src2);
+
+	ft_memmove(dest2, src2,  0);
+	printf("Testing2, after memmove: dest = %s\n", dest2);
+
+	char dest3[20] = "Hello World!";
+	char src3[10] = "";
+	printf("Testing3, before memmove: dest = %s\n", dest3);
+
+	ft_memmove(dest3, src3,  5);
+	printf("Testing3, after memmove: dest = %s\n", dest3);
+
+	char dest4[20] = "Hello World!";
+	char src4[20] = "abcde";
+	printf("Testing4, before memmove: dest = %s, src = %s\n", dest4, src4);
+
+	ft_memmove(dest4 + 5, src4,  5);
+	printf("Testing4, after memmove: dest = %s\n", dest4);
+
+	printf("Testing ft_memmove: DONE\n");
 	printf("\n");
 }
 
@@ -61,6 +248,186 @@ void	test_strlcpy()
 
 	printf("Testing ft_strlcpy: DONE\n");
 	printf("\n");
+}
+
+void	test_strlcat()
+{
+	printf("Testing ft_strlcat:\n");
+
+	char dest[20] = "Hello ";
+	char src[] = "World!";
+	size_t destsize = sizeof(dest);
+	size_t result = ft_strlcat(dest, src, destsize);
+	printf("Test: Expected output: %s\n", dest);
+	printf("Test: Expected output length: %zu\n", result);
+
+	printf("Testing ft_strlcat: DONE\n");
+	printf("\n");
+}
+
+void	test_toupper()
+{	
+	printf("Testing ft_toupper:\n");
+
+	char lowercase = 'a';
+	printf("Lowercase: %c\n", lowercase);
+	printf("Uppercase: %c\n", ft_toupper(lowercase));
+	
+	printf("Testing ft_toupper: DONE\n");
+	printf("\n");
+}
+
+void	test_tolower()
+{
+	printf("Testing ft_tolower:\n");
+
+	char uppercase = 'A';
+	printf("Lowercase: %c\n", uppercase);
+	printf("Uppercase: %c\n", ft_tolower(uppercase));
+
+	printf("Testing ft_tolower: Done\n");
+	printf("\n");
+}
+
+void	test_strchr()
+{
+	const char str[] = "Hello! World!";
+	const char c = ' ';
+	char *ret;
+
+	ret = ft_strchr(str, c);
+	printf("String after %c is - %s\n", c, ret);
+}
+
+void	test_strrchr()
+{
+	const char str[] = "Hello! World!";
+	const char c = 'o';
+	char *ret;
+
+	ret = ft_strrchr(str, c);
+	printf("String from last %c is: %s\n", c, ret);
+}
+
+void	test_strncmp()
+{
+	printf("%d\n", ft_strncmp("Hello", "Hello", 7));
+	printf("%d\n", ft_strncmp("Hello", "He110", 3));
+	printf("%d\n", ft_strncmp("Hello", "World", 5));
+}
+
+void	test_memchr()
+{
+	const char str[] = "Hello World!";
+	const char c = 'o';
+	char *results;
+
+	results = ft_memchr(str, c, 15);
+	printf("String after %c is %s\n", c, results);
+
+	results = ft_memchr(str, c, 3);
+	printf("String after %c is %s\n", c, results);
+}
+
+void	test_memcmp()
+{
+	printf("The difference is: %d\n", ft_memcmp("Hello", "Hello", 7));
+	printf("The difference is: %d\n", ft_memcmp("Hello", "He110", 5));
+	printf("The difference is: %d\n", ft_memcmp("Hello", "World", 3));
+}
+
+void	test_strnstr()
+{
+	const char *hay = "Hello World!";
+	const char *nee = "World";
+	const char *nee1 = "!";
+	size_t n = 13;
+	size_t n1 = 5;
+
+	char *res = ft_strnstr(hay, nee, n);
+	char *res1 = ft_strnstr(hay, nee1, n);
+	char *res2 = ft_strnstr(hay, nee1, n1);
+	if (res)
+		printf("Found: %s\n", res);
+	else
+		printf("Not found within the first %zu characters. \n", n);
+	if (res1)
+		printf("Found: %s\n", res1);
+	else
+		printf("Not found within the first %zu characters. \n", n);
+	if (res2)
+		printf("Found: %s\n", res2);
+	else
+		printf("Not found within the first %zu characters. \n", n1);
+}
+
+void	test_atoi()
+{
+	const char *test_cases[] =
+	{
+		"123",
+        "+456",
+        "-789",
+        "   101",
+        "  +202",
+        "  -303",
+        "  404  ",
+        "  +505abc",
+        "  -606abc",
+        "  707def",
+		NULL
+	};
+
+	int x = 0;
+	while (test_cases[x] != NULL)
+	{
+		printf("Input: %s\n", test_cases[x]);
+		int	results = ft_atoi(test_cases[x]);
+		printf("Output: %d\n\n", results);
+		x++;
+	}
+	return (0);
+}
+
+void	test_calloc()
+{
+	// Test case 1: Allocate memory for 5 integers and initialize to zero
+  int *arr1 = (int*)ft_calloc(5, sizeof(int));
+
+  if (arr1) {
+    printf("Test 1: Allocated %zu integers\n", (size_t)5);
+    printf("arr1[0] = %d\n", arr1[0]);  // Access first element directly
+    printf("arr1[4] = %d\n", arr1[4]);  // Access last element directly
+    free(arr1);  // Free the allocated memory
+  } else {
+    printf("Test 1: Allocation failed\n");
+  }
+
+  // Test case 2: Allocate memory for 0 elements (should return NULL)
+  char *arr2 = (char*)ft_calloc(0, sizeof(char));
+
+  if (arr2) {
+    printf("Test 2: Unexpected allocation (should be NULL)\n");
+  } else {
+    printf("Test 2: Allocation failed (expected)\n");
+  }
+
+  // Test case 3: Allocate a large amount of memory (check for overflow handling)
+  size_t large_size = sizeof(size_t) * 1000000;  // Adjust the size as needed
+  void *arr3 = ft_calloc(large_size, 1);
+
+  if (arr3) {
+    printf("Test 3: Unexpected allocation for large size
+	(may indicate overflow issue)\n");
+    free(arr3);  // Free the allocated memory (if successful)
+  } else {
+    printf("Test 3: Allocation failed (expected for large size)\n");
+  }
+}
+
+void	test_strdup()
+{
+	;
 }
 
 void	test_substr()
@@ -298,8 +665,28 @@ void	test_striteri()
 int	main()
 {
 	test_isalpha();
+	test_isdigit();
+	test_isalnum();
+	test_isascii();
+	test_isprint();
 	test_strlen();
+	test_memset();
+	test_bzero();
+	test_memcpy();
+	test_memmove();
 	test_strlcpy();
+	test_strlcat();
+	test_toupper();
+	test_tolower();
+	test_strchr();
+	test_strrchr();
+	test_strncmp();
+	test_memchr();
+	test_memcmp();
+	test_strnstr();
+	test_atoi();
+	test_calloc();
+	test_strdup();
 	test_substr();
 	test_strjoin();
 	test_strtrim();

@@ -6,11 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 13:59:47 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/18 13:59:52 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 12:04:23 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_isalnum(int x)
 {
@@ -18,22 +18,8 @@ int	ft_isalnum(int x)
 		|| (x >= 65 && x <= 90)
 		|| (x >= 97 && x <= 122))
 	{
-		return (x);
+		return (1);
 	}
 	else
 		return (0);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	printf("%d\n", ft_isalnum(48));
-	printf("%d\n", ft_isalnum(65));
-	printf("%d\n", ft_isalnum(97));
-	printf("%d\n", ft_isalnum(33));
-	printf("%d\n", ft_isalnum(32));
-	printf("%d\n", ft_isalnum(200));
-	printf("%d\n", ft_isalnum(0));
-}
-*/

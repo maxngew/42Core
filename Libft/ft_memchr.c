@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/19 16:26:01 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/27 16:51:52 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,4 @@ void	*ft_memchr(const void *str, int c, size_t n)
 		x++;
 	}
 	return (NULL);
-}
-
-#include <stdio.h>
-
-int	main()
-{
-	const char str[] = "Hello World!";
-	const char c = 'o';
-	char *results;
-
-	results = ft_memchr(str, c, 15);
-	printf("String after %c is %s\n", c, results);
-
-	results = ft_memchr(str, c, 3);
-	printf("String after %c is %s\n", c, results);
-	return(0);
 }
