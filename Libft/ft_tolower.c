@@ -6,11 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 19:53:38 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/27 16:31:40 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/28 16:48:09 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_tolower(int x)
 {

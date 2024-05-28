@@ -6,11 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 22:12:13 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/27 16:52:45 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/28 16:42:41 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 int	isspace(int x)
 {

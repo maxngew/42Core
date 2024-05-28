@@ -6,11 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 19:42:00 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/27 16:31:51 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/28 16:48:24 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_toupper(int x)
 {

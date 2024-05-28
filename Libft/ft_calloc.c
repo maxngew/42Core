@@ -6,11 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:40:12 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/27 16:53:06 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/28 16:43:03 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

@@ -6,11 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 20:20:47 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/27 17:39:46 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/28 16:45:52 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {

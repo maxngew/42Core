@@ -6,11 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/27 16:51:52 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/28 16:44:03 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
