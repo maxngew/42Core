@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 20:44:01 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/23 23:34:40 by jngew            ###   ########.fr       */
+/*   Updated: 2024/05/30 17:26:42 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 static int	count_words(const char *s, char c)
 {
 	int	count;
-	int	in_subs;
+	int	in_word;
 
 	count = 0;
-	in_subs = 0;
+	in_word = 0;
 	while (*s)
 	{
-		if (*s != c && !in_subs)
+		if (*s != c && !in_word)
 		{
-			in_subs = 1;
+			in_word = 1;
 			count++;
 		}
 		else if (*s == c)
 		{
-			in_subs = 0;
+			in_word = 0;
 		}
 		s++;
 	}
@@ -66,7 +66,7 @@ static void	free_mem(char **result, int index)
 	free(result);
 }
 
-static const char	*s_next(const char *s, char c, char **result, int *index)
+static const char	*next_word(const char *s, char c, char **result, int *index)
 {
 	const char	*start;
 	size_t		len;
@@ -103,7 +103,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if (*s != c)
 		{
-			s = s_next(s, c, result, &index);
+			s = next_word(s, c, result, &index);
 			if (!s)
 			{
 				free_mem(result, index);

@@ -425,45 +425,72 @@ void	test_calloc()
 {
 	printf("Testing ft_calloc:\n");
 
-	// Test case 1: Allocate memory for 5 integers and initialize to zero
-  int *arr1 = (int*)ft_calloc(5, sizeof(int));
+	int *arr1 = (int*)ft_calloc(5, sizeof(int));
 
-  if (arr1) {
-    printf("Test 1: Allocated %zu integers\n", (size_t)5);
-    printf("arr1[0] = %d\n", arr1[0]);  // Access first element directly
-    printf("arr1[4] = %d\n", arr1[4]);  // Access last element directly
-    free(arr1);  // Free the allocated memory
-  } else {
-    printf("Test 1: Allocation failed\n");
-  }
+	if (arr1) {
+		printf("Testing1: Allocated %zu integers\n", (size_t)5);
+		printf("Testing1: arr1[0] = %d\n", arr1[0]);
+		printf("Testing1: arr1[4] = %d\n", arr1[4]);
+		free(arr1);
+	} 
+	else 
+	{
+		printf("Testing1: Allocation failed\n");
+	}
 
-  // Test case 2: Allocate memory for 0 elements (should return NULL)
-  char *arr2 = (char*)ft_calloc(0, sizeof(char));
+	char *arr2 = (char*)ft_calloc(0, sizeof(char));
 
-  if (arr2) {
-    printf("Test 2: Unexpected allocation (should be NULL)\n");
-  } else {
-    printf("Test 2: Allocation failed (expected)\n");
-  }
+	if (arr2)
+	{
+		printf("Testing2: Unexpected allocation (should be NULL)\n");
+	}
+	else
+	{
+		printf("Testing2: Allocation failed (expected)\n");
+	}
 
-  // Test case 3: Allocate a large amount of memory (check for overflow handling)
-  size_t large_size = sizeof(size_t) * 1000000;  // Adjust the size as needed
-  void *arr3 = ft_calloc(large_size, 1);
+	size_t large_size = sizeof(size_t) * 1000000;
+	void *arr3 = ft_calloc(large_size, 1);
 
-  if (arr3) {
-    printf("Test 3: Unexpected allocation for large size (may indicate overflow issue)\n");
-    free(arr3);  // Free the allocated memory (if successful)
-  } else {
-    printf("Test 3: Allocation failed (expected for large size)\n");
-  }
+	if (arr3)
+	{
+		printf("Testing3: Unexpected allocation for large size (may indicate overflow issue)\n");
+		free(arr3);
+	}
+	else
+	{
+		printf("Testing3: Allocation failed (expected for large size)\n");
+	}
 
-  printf("Testing ft_calloc: DONE\n");
-  printf("\n");
+	printf("Testing ft_calloc: DONE\n");
+	printf("\n");
 }
 
 void	test_strdup()
 {
-	;
+	printf("Testing ft_strdup:\n");
+
+	char *result;
+
+	result = ft_strdup("Hello, World!");
+	printf("Testing1: %s\n", result);
+	free(result);
+
+	result = ft_strdup("");
+	printf("Testing2: %s\n", result);
+	free(result);
+
+	result = ft_strdup("A");
+	printf("Testing3: %s\n", result);
+	free(result);
+
+	result = ft_strdup(" !@#@$%*");
+	printf("Testing4: %s\n", result);
+	free(result);
+
+	printf("Testing ft_strdup: DONE\n");
+	printf("\n");
+	
 }
 
 void	test_substr()
@@ -570,10 +597,7 @@ void	test_split()
 	printf("Testing1: 'Hello,World,This,Is,Me' & ','\n");
 	for (int x = 0; result[x] != NULL; x++)
 	{
-		printf("%s", result[x]);
-		if (result[x + 1] != NULL)
-			printf(" ");
-		free(result[x]);
+		printf("%s\n", result[x]);
 	}
 	free(result);
 	printf("\n");
@@ -586,21 +610,20 @@ void	test_split()
         free(result[x]);
     }
     free(result);
+	printf("\n");
 
 	result = ft_split("", ',');
 	printf("Testing3: ' ', ' '\n");
 	if (result[0] == NULL)
 		printf("Empty String\n");
 	free (result);
+	printf("\n");
 
 	result = ft_split("a,b,c,d,e", ',');
 	printf("Testing4: 'a,b,c,d,e' & ','\n");
 	for (int x = 0; result[x] != NULL; x++)
     {
-        printf("%s", result[x]);
-		if (result[x + 1] != NULL)
-			printf(" ");	
-        free(result[x]);
+        printf("%s\n", result[x]);
     }
     free(result);
 	printf("\n");
@@ -698,6 +721,79 @@ void	test_striteri()
 	printf("\n");
 }
 
+void	test_putcharfd()
+{
+	printf("Testing ft_putchar_fd:\n");
+
+	char c = 'a';
+	int fd = 1;
+	printf("Testing1: c =  %c, fd = %d\n", c, fd);
+	ft_putchar_fd(c, fd);
+	printf("\n");
+
+	printf("Testing ft_putchar_fd: DONE\n");
+	printf("\n");
+}
+
+void	test_putstrfd()
+{
+	printf("Testing ft_putstr_fd:\n");
+
+	char *s = "Hello";
+	int	fd = 1;
+
+	printf("Testing1: s = %s, fd = %d\n", s, fd);
+	ft_putstr_fd(s, fd);
+	printf("\n");
+
+	printf("Testing ft_putstr_fd: DONE\n");
+	printf("\n");
+}
+
+void	test_putendlfd()
+{
+	printf("Testing ft_putendl_fd:\n");
+
+	char *s = "";
+	int	fd = 1;
+
+	printf("Testing1: s = %s, fd = %d\n", s, fd);
+	ft_putendl_fd(s, fd);
+	printf("\n");
+
+	printf("Testing ft_putendl_fd: DONE\n");
+	printf("\n");
+}
+
+void	test_putnbrfd()
+{
+	printf("Testing ft_putnbr_fd:\n");
+
+	int n1 = 0;
+	int fd1 = 1;
+	
+	printf("Testing1: n = %d, fd = %d\n", n1, fd1);
+	ft_putnbr_fd(n1, fd1);
+	printf("\n");
+
+	int n2 = 1234;
+	int fd2 = 1;
+
+	printf("Testing2: n = %d, fd = %d\n", n2, fd2);
+	ft_putnbr_fd(n2, fd2);
+	printf("\n");
+
+	int n3 = -567;
+	int fd3 = 1;
+
+	printf("Testing3: n = %d, fd = %d\n", n3, fd3);
+	ft_putnbr_fd(n3, fd3);
+	printf("\n");
+
+	printf("Testing ft_putnbr_fd: DONE\n");
+	printf("\n");
+}
+
 int	main()
 {
 	test_isalpha();
@@ -730,5 +826,9 @@ int	main()
 	test_itoa();
 	test_strmapi();
 	test_striteri();
+	test_putcharfd();
+	test_putstrfd();
+	test_putendlfd();
+	test_putnbrfd();
 	return (0);
 }
