@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 22:05:08 by jngew             #+#    #+#              #
-#    Updated: 2024/05/30 20:42:56 by jngew            ###   ########.fr        #
+#    Updated: 2024/05/31 00:56:56 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,8 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME) test
+	rm -f $(NAME)
 
 re: fclean $(NAME)
 
-.PHONY: all norminette clean fclean re
+.PHONY: all clean fclean re
