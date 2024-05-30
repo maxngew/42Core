@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 21:20:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/30 19:51:08 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/18 13:59:47 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/27 12:04:23 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+int	ft_isalnum(int x)
 {
-	unsigned int	x;
-
-	x = 0;
-	while (s[x])
+	if ((x >= 48 && x <= 57)
+		|| (x >= 65 && x <= 90)
+		|| (x >= 97 && x <= 122))
 	{
-		(*f)(x, &s[x]);
-		x++;
+		return (1);
 	}
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 22:05:08 by jngew             #+#    #+#              #
-#    Updated: 2024/05/30 20:42:56 by jngew            ###   ########.fr        #
+#    Updated: 2024/05/27 17:09:57 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,15 @@ $(NAME) : $(OBJ)
 	@echo "Coverting .c files to .o files"
 	$(CC) $(CFLAGS) -c $< -o $@
 
+test: $(NAME) test_files.c
+	$(CC) -o test test_files.c -L. -lft
+
+norminette:
+	@echo "Norminette all files"
+	norminette -R CheckForbiddenSourceHeader $(SRC)
+	@echo "Norminette libft.h"
+	norminette -R CheckDefine libft.h
+
 clean:
 	rm -f $(OBJ)
 
@@ -37,4 +46,4 @@ fclean: clean
 
 re: fclean $(NAME)
 
-.PHONY: all norminette clean fclean re
+.PHONY: all test norminette clean fclean re

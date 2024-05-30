@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 21:20:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/30 19:51:08 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/15 21:38:42 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/28 16:47:03 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	unsigned int	x;
+	size_t	x;
 
 	x = 0;
-	while (s[x])
+	while ((str1[x] || str2[x]) && x < n)
 	{
-		(*f)(x, &s[x]);
+		if ((unsigned char) str1[x] != (unsigned char) str2[x])
+		{
+			return ((unsigned char) str1[x] - (unsigned char) str2[x]);
+		}
 		x++;
 	}
+	return (0);
 }

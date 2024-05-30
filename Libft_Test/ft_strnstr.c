@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 21:20:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/30 19:51:08 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/16 20:32:28 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/29 17:15:47 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+char	*ft_strnstr(const char *hay, const char *nee, size_t n)
 {
-	unsigned int	x;
+	size_t	x;
+	size_t	y;
 
 	x = 0;
-	while (s[x])
+	if (nee[0] == 0)
+		return ((char *)hay);
+	while (hay[x] && x < n)
 	{
-		(*f)(x, &s[x]);
+		y = 0;
+		while (hay[x + y] == nee[y] && hay[x + y] && x + y < n)
+		{
+			y++;
+			if (nee[y] == '\0')
+				return ((char *)hay + x);
+		}
 		x++;
 	}
+	return (NULL);
 }

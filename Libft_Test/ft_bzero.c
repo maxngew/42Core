@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 21:20:04 by jngew             #+#    #+#             */
-/*   Updated: 2024/05/30 19:51:08 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/14 13:09:30 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/28 01:23:04 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_bzero(void *str, size_t n)
 {
-	unsigned int	x;
+	char	*temp_x;
 
-	x = 0;
-	while (s[x])
+	temp_x = (char *)str;
+	while (n > 0)
 	{
-		(*f)(x, &s[x]);
-		x++;
+		*temp_x = 0;
+		temp_x++;
+		n--;
 	}
 }
