@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:30:11 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/05 15:58:35 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/05 21:01:47 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ static void	cal_base(size_t num, size_t *len)
 
 void	ft_ptr(void *ptr, size_t *len)
 {
-	size_t	num;
+	unsigned long long	num;
 
-	num = (size_t)ptr;
+	if (!ptr)
+	{
+		ft_str("(nil)", len);
+		return ;
+	}
+	num = (unsigned long long)ptr;
 	ft_str("0x", len);
-	if (num == 0)
-		ft_char('0', len);
-	else
-		cal_base(num, len);
+	cal_base(num, len);
 }

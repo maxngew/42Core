@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 16:50:20 by jngew             #+#    #+#              #
-#    Updated: 2024/06/05 15:51:38 by jngew            ###   ########.fr        #
+#    Updated: 2024/06/05 18:10:28 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,8 @@ test: $(NAME) test_files.c
 norminette:
 	@echo "Norminette all files"
 	norminette -R CheckForbiddenSourceHeader $(SRC)
-	@echo "Norminette libft.h"
-	norminette -R CheckDefine libftprintf.h
+	@echo "Norminette ft_print.h"
+	norminette -R CheckDefine ft_printf.h
 
 clean:
 	rm -f $(OBJ)
