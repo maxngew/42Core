@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:56:26 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/05 21:48:07 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/05 22:08:35 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ static void	find_printf(const char *s, va_list *args, size_t *len)
 		ft_str(va_arg(*args, char *), len);
 	else if (*s == 'p')
 		ft_ptr(va_arg(*args, void *), len);
-	else if (*s == 'd')
-		ft_nbr(va_arg(*args, int), len);
-	else if (*s == 'i')
+	else if (*s == 'd' || *s == 'i')
 		ft_nbr(va_arg(*args, int), len);
 	else if (*s == 'u')
 		ft_unsignednbr(va_arg(*args, unsigned int), len);
@@ -32,6 +30,8 @@ static void	find_printf(const char *s, va_list *args, size_t *len)
 		ft_hexupper(va_arg(*args, unsigned int), len);
 	else if (*s == '%')
 		ft_char('%', len);
+	else if (*s = 0)
+		ft_char(s, len);
 }
 
 int	ft_printf(const char *str, ...)
