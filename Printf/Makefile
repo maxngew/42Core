@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 16:50:20 by jngew             #+#    #+#              #
-#    Updated: 2024/06/05 18:10:28 by jngew            ###   ########.fr        #
+#    Updated: 2024/06/05 21:30:00 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 test: $(NAME) test_files.c
-	$(CC) -o test test_files.c -L. -lft
+	$(CC) -o test test_files.c -L. -lftprintf
 
 norminette:
 	@echo "Norminette all files"

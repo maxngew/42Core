@@ -1,0 +1,3 @@
+https://scientyficworld.org/how-to-write-my-own-printf-in-c/#:~:text=For%20example%2C%20you%20can%20test,that%20it%20handles%20them%20correctly
+
+https://www.linkedin.com/pulse/recreate-printf-c-paul-stuart-hun0c
