@@ -693,6 +693,10 @@ void	test_strmapi()
 	printf("Testing3: %s\n", res3);
 	free(res3);
 
+	char *res4 = ft_strmapi("hello", ft_toupper);
+	printf("Testing4: %s\n", res4);
+	free(res4);
+
 	printf("Testing ft_strmapi: DONE\n");
 	printf("\n");
 }
