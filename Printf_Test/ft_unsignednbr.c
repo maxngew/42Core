@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_files.c                                       :+:      :+:    :+:   */
+/*   ft_unsignednbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 16:08:52 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/05 21:58:26 by jngew            ###   ########.fr       */
+/*   Created: 2024/06/05 14:01:43 by jngew             #+#    #+#             */
+/*   Updated: 2024/06/06 10:54:11 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main()
+int	ft_unsignednbr(unsigned int n, size_t *len)
 {
-	ft_printf("Testing ft_printf:\n");
-	ft_printf("\n");
-	
-	int	age;
-	int	*ptr;
-	int	x;
-
-	age = 33;
-	x = 2024;
-	ft_printf("My name is %s, and I am %d years old. \n", "Max", age);
-	ft_printf("The address of the pointer, ptr: %p\n", ptr);
-	ft_printf("The year is: %i\n", x);
-
-
-	ft_printf("\n");
-	ft_printf("Testing ft_printf: DONE\n");
-	return (0);
+	if (n > 9)
+	{
+		if (ft_unsignednbr(n / 10, len) == -1
+			|| ft_unsignednbr(n % 10, len) == -1)
+			return (-1);
+		return (0);
+	}
+	else
+	{
+		return (ft_char(n + 48, len));
+	}
 }

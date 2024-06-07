@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptr.c                                           :+:      :+:    :+:   */
+/*   ft_nbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 15:30:11 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/05 23:57:40 by jngew            ###   ########.fr       */
+/*   Created: 2024/06/04 23:05:43 by jngew             #+#    #+#             */
+/*   Updated: 2024/06/06 10:54:38 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	cal_base(size_t num, size_t *len)
+int	ft_nbr(int n, size_t *len)
 {
-	if (num >= 16)
+	if (n == -2147483648)
 	{
-		cal_base(num / 16, len);
-		cal_base(num % 16, len);
+		if (ft_char('-', len) == -1 || ft_char('2', len) == -1)
+			return (-1);
+		return (ft_nbr(147483648, len));
+	}
+	else if (n < 0)
+	{
+		if (ft_char('-', len) == -1)
+			return (-1);
+		n = -n;
+		return (ft_nbr(n, len));
+	}
+	else if (n > 9)
+	{
+		if (ft_nbr(n / 10, len) == -1 || ft_nbr(n % 10, len) == -1)
+			return (-1);
+		return (0);
 	}
 	else
-	{
-		if (num <= 9)
-			ft_char((num + 48), len);
-		else
-			ft_char((num - 10 + 'a'), len);
-	}
-}
-
-void	ft_ptr(void *ptr, size_t *len)
-{
-	unsigned long long	num;
-
-	if (!ptr)
-	{
-		ft_str("0x0", len);
-		return ;
-	}
-	num = (unsigned long long)ptr;
-	ft_str("0x", len);
-	cal_base(num, len);
+		return (ft_char(n + 48, len));
 }

@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:56:26 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/05 22:08:35 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/05 23:28:00 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	find_printf(const char *s, va_list *args, size_t *len)
 {
-	if (*s == 'c')
+	if (*s == '\0')
+		return ;
+	else if (*s == 'c')
 		ft_char(va_arg(*args, int), len);
 	else if (*s == 's')
 		ft_str(va_arg(*args, char *), len);
@@ -30,8 +32,6 @@ static void	find_printf(const char *s, va_list *args, size_t *len)
 		ft_hexupper(va_arg(*args, unsigned int), len);
 	else if (*s == '%')
 		ft_char('%', len);
-	else if (*s = 0)
-		ft_char(s, len);
 }
 
 int	ft_printf(const char *str, ...)
