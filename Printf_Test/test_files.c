@@ -6,11 +6,12 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:08:52 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/06 00:22:56 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/07 16:25:03 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	main()
 {
@@ -36,6 +37,7 @@ int	main()
 	ft_printf("Hex UC with ZeroL %X\n", 0);
 	ft_printf("Unsigned int: %u\n", 4294967295u);
 	ft_printf("Unsigned int zero: %u\n", 0);
+	ft_printf(" %p %p ", 0, 0);
 
 	ft_printf("\n");
 	ft_printf("Testing ft_printf: DONE\n");

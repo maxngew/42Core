@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:30:11 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/05 23:57:40 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/07 16:28:59 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_ptr(void *ptr, size_t *len)
 
 	if (!ptr)
 	{
-		ft_str("0x0", len);
+		ft_str("(nil)", len);
 		return ;
 	}
 	num = (unsigned long long)ptr;
