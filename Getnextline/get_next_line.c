@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/14 16:35:14 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/15 02:50:35 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,82 +19,74 @@
 static char	*get_line(char *buffer)
 {
 	size_t	x;
+	char	*left_c;
 
 	x = 0;
-	if (buffer[x] == '\0')
+	while (buffer[x] != '\n' && buffer[x] != '\0')
+		x++;
+	if (buffer[x] == 0 || buffer[1] == 0)
 		return (NULL);
-	while (buffer[x] && buffer[x] != '\n')
-		x++;
-	if (buffer[x] != '\n')
-		x++;
-	return (ft_substr(buffer, 0, x));
-}
-
-static char	*new_line(char *buffer)
-{
-	size_t	x;
-	size_t	len;
-	char	*new_buf;
-
-	x = 0;
-	while (buffer[x] && buffer[x] != '\n')
-		x++;
-	if (buffer[x] == '\0')
+	left_c = ft_substr(buffer, x + 1, ft_strlen(buffer) - x);
+	if (*left_c == 0)
 	{
-		free (buffer);
-		return (NULL);
+		free (left_c);
+		left_c = NULL;
 	}
-	len = ft_strlen(buffer) - x - 1;
-	new_buf = ft_substr(buffer, x + 1, len);
-	free (buffer);
-	return (new_buf);
+	buffer[x + 1] = '\0';
+	return (left_c);
 }
 
-static char	*read_buffer(int fd, char *buffer, char *buf)
+static char	*read_buffer(int fd, char *left_c, char *buffer)
 {
 	int		bytes_read;
 	char	*temp;
 
 	bytes_read = 1;
-	while (!ft_strchr(buffer, '\n') && bytes_read > 0)
+	while (bytes_read > 0)
 	{
-		bytes_read = read(fd, buf, BUFFER_SIZE);
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free (buffer);
+			free (left_c);
 			return (NULL);
 		}
-		buf[bytes_read] = '\0';
-		temp = ft_strjoin(buffer, buf);
-		if (!temp)
-		{
-			free(buffer);
-			return (NULL);
-		}
-		free (buffer);
-		buffer = temp;
+		else if (bytes_read == 0)
+			break ;
+		buffer[bytes_read] = '\0';
+		if (!left_c)
+			left_c = ft_strdup("");
+		temp = left_c;
+		left_c = ft_strjoin(temp, buffer);
+		free (temp);
+		temp = NULL;
+		if (ft_strchr(buffer, '\n'))
+			break ;
 	}
-	return (buffer);
+	return (left_c);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*left_c;
 	char		*line;
-	char		*buf;
+	char		*buffer;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		free (left_c);
+		free (buffer);
+		left_c = NULL;
+		buffer = NULL;
 		return (NULL);
+	}
 	if (!buffer)
-		buffer = ft_strdup("");
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
 		return (NULL);
-	buffer = read_buffer(fd, buffer, buf);
-	free (buf);
-	if (!buffer)
+	line = read_buffer(fd, left_c, buffer);
+	free (buffer);
+	buffer = NULL;
+	if (!line)
 		return (NULL);
-	line = get_line(buffer);
-	buffer = new_line(buffer);
+	left_c = get_line(line);
 	return (line);
 }
