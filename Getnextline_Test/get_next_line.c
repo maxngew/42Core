@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/15 16:28:02 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/15 16:54:56 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ static char	*read_buffer(int fd, char *remaining, char *buffer)
 		temp = remaining;
 		remaining = ft_strjoin(temp, buffer);
 		free (temp);
-		temp = NULL;
+		if (!remaining)
+			return (NULL);
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
@@ -71,22 +72,30 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*buffer;
 
-	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		free (remaining);
-		free (buffer);
-		remaining = NULL;
-		buffer = NULL;
+		if (remaining)
+		{
+			free (remaining);
+			remaining = NULL;
+		}
 		return (NULL);
 	}
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
 	line = read_buffer(fd, remaining, buffer);
 	free (buffer);
 	buffer = NULL;
 	if (!line)
+	{
+		if (remaining)
+		{
+			free (remaining);
+			remaining = NULL;
+		}
 		return (NULL);
+	}
 	remaining = get_line(line);
 	return (line);
 }
