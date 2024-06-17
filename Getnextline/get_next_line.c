@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/15 16:28:02 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/17 04:29:49 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static char	*get_line(char *buffer)
 	x = 0;
 	while (buffer[x] != '\n' && buffer[x] != '\0')
 		x++;
-	if (buffer[x] == 0 || buffer[1] == 0)
+	if (buffer[x] == 0 || buffer[x +1] == 0)
 		return (NULL);
-	remaining = ft_substr(buffer, x + 1, ft_strlen(buffer) - x);
+	remaining = ft_substr(buffer, x + 1, ft_strlen(buffer) - (x + 1));
 	if (*remaining == 0)
 	{
 		free (remaining);
@@ -75,18 +75,18 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free (remaining);
-		free (buffer);
 		remaining = NULL;
-		buffer = NULL;
+		free (buffer);
 		return (NULL);
 	}
-	if (!buffer)
-		return (NULL);
 	line = read_buffer(fd, remaining, buffer);
 	free (buffer);
-	buffer = NULL;
 	if (!line)
+	{
+		free (remaining);
+		remaining = NULL;
 		return (NULL);
+	}
 	remaining = get_line(line);
 	return (line);
 }
