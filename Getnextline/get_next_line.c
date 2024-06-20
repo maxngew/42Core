@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/17 16:53:38 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/20 23:04:47 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,16 @@ static char	*get_line(char *buffer)
 	char	*remaining;
 
 	x = 0;
-	while (buffer[x] != '\n' && buffer[x] != '\0')
+	while (buffer[x] != '\0' && buffer[x] != '\n')
 		x++;
-	if (buffer[x] == '\0' || buffer[x +1] == '\0')
+	if (buffer[x] == '\0' || buffer[x + 1] == '\0')
 		return (NULL);
-	remaining = ft_substr(buffer, x + 1, ft_strlen(buffer) - (x + 1));
+	if (buffer[x] == '\n')
+		remaining = ft_substr(buffer, x + 1, (ft_strlen(buffer) - (x + 1)));
+	else
+		remaining = ft_substr(buffer, 0, x);
+	if (remaining == NULL)
+		return (NULL);
 	if (*remaining == '\0')
 	{
 		free (remaining);
