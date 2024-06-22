@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/20 23:04:47 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/22 00:34:59 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,15 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || !buffer || read(fd, 0, 0) < 0)
 	{
 		free (remaining);
-		remaining = NULL;
 		free (buffer);
+		remaining = NULL;
+		buffer = NULL;
 		return (NULL);
 	}
 	line = read_buffer(fd, remaining, buffer);
 	free (buffer);
 	if (!line)
-	{
-		free (remaining);
-		remaining = NULL;
 		return (NULL);
-	}
 	remaining = get_line(line);
 	return (line);
 }

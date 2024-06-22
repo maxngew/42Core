@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/20 23:13:29 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/22 16:52:19 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,68 +16,82 @@
 # define BUFFER_SIZE 42
 #endif
 
-static char	*get_line(char *buffer)
+static char	*read_line(int fd, char *line, char *buffer)
 {
-	size_t	x;
-	char	*remaining;
-
-	x = 0;
-	while (buffer[x] != '\0' && buffer[x] != '\n')
-		x++;
-	printf("Debugging: get_line\n");
-	printf("Debug: buffer = \"%s\", x = %zu\n", buffer, x);
-	if (buffer[x] == '\0' || buffer[x + 1] == '\0')
-		return (NULL);
-	if (buffer[x] == '\n')
-		remaining = ft_substr(buffer, x + 1, (ft_strlen(buffer) - (x + 1)));
-	else
-		remaining = ft_substr(buffer, 0, x);
-	if (remaining == NULL)
-		return (NULL);
-	printf("Debug: remaining = \"%s\"\n", remaining);
-	if (*remaining == '\0')
-	{
-		free (remaining);
-		remaining = NULL;
-	}
-	buffer[x + 1] = '\0';
-	printf("Debug: buffer after processing = \"%s\"\n", buffer);
-	printf("Debugging: get_line END\n");
-	return (remaining);
-}
-
-static char	*read_buffer(int fd, char *remaining, char *buffer)
-{
-	int		bytes_read;
-	char	*temp;
+	ssize_t	bytes_read;
 
 	bytes_read = 1;
+	if (!line)
+		line = ft_strdup("");
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		printf("Debugging: read_buffer\n");
-		printf("Debug: bytes_read = %d\n", bytes_read);
 		if (bytes_read == -1)
 		{
-			free (remaining);
+			free (buffer);
 			return (NULL);
 		}
 		else if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
-		printf("Debug: buffer read = \"%s\"\n", buffer);
-		if (!remaining)
-			remaining = ft_strdup("");
-		temp = remaining;
-		remaining = ft_strjoin(temp, buffer);
-		printf("Debug: remaining after join = \"%s\"\n", remaining);
-		printf("Debugging: read_buffer END\n");
-		free (temp);
-		temp = NULL;
+		line = ft_strjoin(line, buffer);
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
-	return (remaining);
+	free (buffer);
+	return (line);
+}
+
+static char	*new_line(char	*line)
+{
+	int		len;
+	int		x;
+	char	*new_line;
+
+	len = 0;
+	x = 0;
+	if (line == NULL)
+		return (NULL);
+	while (line[len] != '\n' && line[len])
+		len++;
+	if (line[len] == '\n')
+		len++;
+	new_line = malloc(sizeof(char) * (ft_strlen(line) - len + 1));
+	if (!new_line)
+		return (NULL);
+	while (line[len + x])
+	{
+		new_line[x] = line[len + x];
+		x++;
+	}
+	free (line);
+	new_line[x] = '\0';
+	return (new_line);
+}
+
+static char	*get_line(char *buffer, char *line)
+{
+	int	len;
+	int	x;
+
+	len = 0;
+	x = 0;
+	if (buffer == NULL)
+		return (NULL);
+	while (buffer[len] != '\n' && buffer[len])
+		len++;
+	if (buffer[len] == '\n')
+		len++;
+	line = (char *)malloc(sizeof(char) * (len + 1));
+	if (!line)
+		return (NULL);
+	while (x < len)
+	{
+		line[x] = buffer[x];
+		x++;
+	}
+	line[x] = '\0';
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -86,30 +100,31 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*buffer;
 
+	line = NULL;
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (fd < 0 || BUFFER_SIZE <= 0 || !buffer || read(fd, 0, 0) < 0)
 	{
-		free (remaining);
+		free(remaining);
+		free(buffer);
 		remaining = NULL;
-		free (buffer);
+		buffer = NULL;
 		return (NULL);
 	}
-	line = read_buffer(fd, remaining, buffer);
-	free (buffer);
-	if (!line)
+	remaining = read_line(fd, remaining, buffer);
+	if (*remaining == 0)
 	{
 		free (remaining);
-		remaining = NULL;
-		return (NULL);
+		return (remaining = 0);
 	}
-	remaining = get_line(line);
+	line = get_line(remaining, line);
+	remaining = new_line(remaining);
 	return (line);
 }
 
 int	main(void)
 {
 	int fd;
-	
+
 	//fd = open("multiple_nl.txt", O_RDONLY);
 	fd = open("variable_nls.txt", O_RDONLY);
     if (fd == -1)
@@ -127,3 +142,4 @@ int	main(void)
     close(fd);
     return 0;
 }
+
