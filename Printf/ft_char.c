@@ -6,13 +6,13 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 13:30:50 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/05 15:57:26 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/25 20:31:22 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_char(char c, size_t *len)
+void	ft_char(int c, size_t *len)
 {
 	write(1, &c, 1);
 	(*len)++;
