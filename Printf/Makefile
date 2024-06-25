@@ -6,13 +6,13 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 16:50:20 by jngew             #+#    #+#              #
-#    Updated: 2024/06/07 16:35:47 by jngew            ###   ########.fr        #
+#    Updated: 2024/06/25 22:29:37 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 SRC = ft_printf.c ft_char.c ft_str.c ft_ptr.c ft_nbr.c ft_unsignednbr.c ft_hex.c 
 
