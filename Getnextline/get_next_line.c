@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/23 00:43:38 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/23 15:51:30 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,83 @@
 # define BUFFER_SIZE 42
 #endif
 
-static char	*get_line(char *buffer)
+static char	*read_line(int fd, char *line, char *buffer)
 {
-	size_t	x;
-	char	*remaining;
-
-	x = 0;
-	while (buffer[x] != '\0' && buffer[x] != '\n')
-		x++;
-	if (buffer[x] == '\0' || buffer[x + 1] == '\0')
-		return (NULL);
-	if (buffer[x] == '\n')
-		remaining = ft_substr(buffer, x + 1, (ft_strlen(buffer) - (x + 1)));
-	else
-		remaining = ft_substr(buffer, 0, x);
-	if (remaining == NULL)
-		return (NULL);
-	if (*remaining == '\0')
-	{
-		free (remaining);
-		remaining = NULL;
-	}
-	buffer[x + 1] = '\0';
-	return (remaining);
-}
-
-static char	*read_buffer(int fd, char *remaining, char *buffer)
-{
-	int		bytes_read;
-	char	*temp;
+	ssize_t	bytes_read;
 
 	bytes_read = 1;
+	if (!line)
+		line = ft_strdup("");
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free (remaining);
+			free (buffer);
+			free (line);
 			return (NULL);
 		}
 		else if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
-		if (!remaining)
-			remaining = ft_strdup("");
-		temp = remaining;
-		remaining = ft_strjoin(temp, buffer);
-		free (temp);
-		temp = NULL;
+		line = ft_strjoin(line, buffer);
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
-	return (remaining);
+	free (buffer);
+	return (line);
+}
+
+static char	*new_line(char	*line)
+{
+	int		len;
+	int		x;
+	char	*new_line;
+
+	len = 0;
+	x = 0;
+	if (line == NULL)
+		return (NULL);
+	while (line[len] != '\n' && line[len])
+		len++;
+	if (line[len] == '\n')
+		len++;
+	new_line = malloc(sizeof(char) * (ft_strlen(line) - len + 1));
+	if (!new_line)
+		return (NULL);
+	while (line[len + x])
+	{
+		new_line[x] = line[len + x];
+		x++;
+	}
+	free (line);
+	new_line[x] = '\0';
+	return (new_line);
+}
+
+static char	*get_line(char *buffer, char *line)
+{
+	int	len;
+	int	x;
+
+	len = 0;
+	x = 0;
+	if (buffer == NULL)
+		return (NULL);
+	while (buffer[len] != '\n' && buffer[len])
+		len++;
+	if (buffer[len] == '\n')
+		len++;
+	line = (char *)malloc(sizeof(char) * (len + 1));
+	if (!line)
+		return (NULL);
+	while (x < len)
+	{
+		line[x] = buffer[x];
+		x++;
+	}
+	line[x] = '\0';
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -76,19 +101,48 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*buffer;
 
+	line = NULL;
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (fd < 0 || BUFFER_SIZE <= 0 || !buffer || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		free (remaining);
-		free (buffer);
+		free(remaining);
+		free(buffer);
 		remaining = NULL;
 		buffer = NULL;
 		return (NULL);
 	}
-	line = read_buffer(fd, remaining, buffer);
-	free (buffer);
+	remaining = read_line(fd, remaining, buffer);
+	if (!remaining || *remaining == 0)
+	{
+		free (remaining);
+		return (remaining = 0);
+	}
+	line = get_line(remaining, line);
 	if (!line)
 		return (NULL);
-	remaining = get_line(line);
+	remaining = new_line(remaining);
 	return (line);
 }
+/*
+int	main(void)
+{
+	int fd;
+
+	//fd = open("multiple_nl.txt", O_RDONLY);
+	fd = open("variable_nls.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        return 1;
+    }
+    char *line;
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("Line: \"%s\"\n", line);
+        printf("Allocated memory: %zu bytes\n", ft_strlen(line) + 1);
+        free(line);
+    }
+    close(fd);
+    return 0;
+}
+*/

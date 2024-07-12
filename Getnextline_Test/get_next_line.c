@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/23 15:51:30 by jngew            ###   ########.fr       */
+/*   Updated: 2024/07/12 14:27:36 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,19 +123,18 @@ char	*get_next_line(int fd)
 	remaining = new_line(remaining);
 	return (line);
 }
-/*
+
 int	main(void)
 {
 	int fd;
+	char *line;
 
-	//fd = open("multiple_nl.txt", O_RDONLY);
-	fd = open("variable_nls.txt", O_RDONLY);
+	fd = open("test.txt", O_RDONLY);
     if (fd == -1)
     {
         perror("Error opening file");
         return 1;
     }
-    char *line;
     while ((line = get_next_line(fd)) != NULL)
     {
         printf("Line: \"%s\"\n", line);
@@ -145,4 +144,3 @@ int	main(void)
     close(fd);
     return 0;
 }
-*/

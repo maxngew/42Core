@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:08:52 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/26 10:56:40 by jngew            ###   ########.fr       */
+/*   Updated: 2024/06/26 22:49:15 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	main()
 	ft_printf("Hex LC with Zero: %x\n", 0);
 	ft_printf("Hex UC with ZeroL %X\n", 0);
 	ft_printf("Unsigned int: %u\n", 4294967295u);
+	ft_printf("Unsigned int: %u\n", -123);
+	printf("Unsigned int: %u\n", -123);
 	ft_printf("Unsigned int zero: %u\n", 0);
 	ft_printf(" %p %p ", 0, 0);
 
