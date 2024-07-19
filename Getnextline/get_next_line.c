@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/06/23 15:51:30 by jngew            ###   ########.fr       */
+/*   Updated: 2024/07/19 16:27:02 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,9 @@ int	main(void)
     }
     while ((line = get_next_line(fd)) != NULL)
     {
-        printf("Line: \"%s\"\n", line);
-        printf("Allocated memory: %zu bytes\n", ft_strlen(line) + 1);
+        printf("Line: %s\n", line);
+        printf("Allocated memory: %zu bytes\n", ft_strlen(line));
+		printf("\n");
         free(line);
     }
     close(fd);
