@@ -6,15 +6,11 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/07/19 16:27:02 by jngew            ###   ########.fr       */
+/*   Updated: 2024/07/20 13:44:10 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
 
 static char	*read_line(int fd, char *line, char *buffer)
 {
