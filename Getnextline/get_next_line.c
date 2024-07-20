@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/07/20 17:31:29 by jngew            ###   ########.fr       */
+/*   Updated: 2024/07/21 02:24:05 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,23 +99,21 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0 || !buffer)
 	{
-		free(remaining);
-		free(buffer);
+		free (remaining);
+		free (buffer);
 		remaining = NULL;
 		buffer = NULL;
 		return (NULL);
 	}
 	remaining = read_line(fd, remaining, buffer);
-	if (!remaining || *remaining == 0)
+	if (*remaining == 0)
 	{
 		free (remaining);
-		return (remaining = 0);
+		return (remaining = NULL);
 	}
 	line = get_line(remaining, line);
-	if (!line)
-		return (NULL);
 	remaining = new_line(remaining);
 	return (line);
 }
