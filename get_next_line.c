@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/07/21 17:56:09 by jngew            ###   ########.fr       */
+/*   Updated: 2024/07/21 17:35:46 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,17 @@ static char	*read_line(int fd, char *line, char *buffer)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (free1(&buffer, &line), NULL);
+		{
+			free (buffer);
+			free (line);
+			return (NULL);
+		}
 		else if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
 		line = ft_strjoin(line, buffer);
+		//if (!line)
+		//	break ;
 		if (!line || ft_strchr(buffer, '\n'))
 			break ;
 	}
@@ -112,13 +118,26 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free(remaining), remaining = NULL);
+	{
+		free (remaining);
+		remaining = NULL;
+		return (NULL);
+	}
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
-		return (free(remaining), remaining = NULL);
+	{
+		free(remaining);
+		remaining = NULL;
+		return (NULL);
+	}
 	remaining = read_line(fd, remaining, buffer);
-	if (!remaining || *remaining == 0)
-		return (free(remaining), remaining = NULL);
+	if (!remaining)
+		return (NULL);
+	if (*remaining == 0)
+	{
+		free (remaining);
+		return (remaining = NULL);
+	}
 	line = get_line(remaining, line);
 	remaining = new_line(remaining);
 	if (!line || !remaining)

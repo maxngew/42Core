@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 13:39:18 by jngew             #+#    #+#             */
-/*   Updated: 2024/07/21 01:34:00 by jngew            ###   ########.fr       */
+/*   Updated: 2024/07/21 17:11:46 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res = (char *)malloc(sizeof(char)
 			* (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!res)
-		return (NULL);
+		return (free((void *)s1), NULL);
 	x = 0;
 	y = 0;
 	while (s1[x])
