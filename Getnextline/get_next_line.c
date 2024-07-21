@@ -6,11 +6,26 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:53:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/07/21 02:24:05 by jngew            ###   ########.fr       */
+/*   Updated: 2024/07/21 16:01:59 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*free1(char **ptr1, char **ptr2)
+{
+	if (ptr1 && *ptr1)
+	{
+		free (*ptr1);
+		*ptr1 = NULL;
+	}
+	if (ptr2 && *ptr2)
+	{
+		free (*ptr2);
+		*ptr2 = NULL;
+	}
+	return (NULL);
+}
 
 static char	*read_line(int fd, char *line, char *buffer)
 {
@@ -98,15 +113,15 @@ char	*get_next_line(int fd)
 	char		*buffer;
 
 	line = NULL;
-	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0 || !buffer)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free (remaining);
-		free (buffer);
 		remaining = NULL;
-		buffer = NULL;
 		return (NULL);
 	}
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
 	remaining = read_line(fd, remaining, buffer);
 	if (*remaining == 0)
 	{
@@ -115,6 +130,8 @@ char	*get_next_line(int fd)
 	}
 	line = get_line(remaining, line);
 	remaining = new_line(remaining);
+	if (!line || !remaining)
+		return (free1(&line, &remaining));
 	return (line);
 }
 /*
