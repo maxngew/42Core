@@ -5,50 +5,35 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/19 19:53:07 by jngew             #+#    #+#              #
-#    Updated: 2024/08/21 22:17:41 by jngew            ###   ########.fr        #
+#    Created: 2024/06/03 16:50:20 by jngew             #+#    #+#              #
+#    Updated: 2024/06/25 22:29:37 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minitalk
+NAME = libftprintf.a
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-SRC = server.c client.c
-OBJ = $(SRC:%.c=%.o)
+SRC = ft_printf.c ft_char.c ft_str.c ft_ptr.c ft_nbr.c ft_unsignednbr.c ft_hex.c 
 
-all:	${NAME}
+OBJ = $(SRC:.c=.o)
 
-%.o:	%.c
-		@echo "Converting .c files to .o files"
-		${CC} ${CFLAGS} -Ilibft -Iprintf -c $< -o $@
+all: $(NAME)
 
-${NAME}: server client
+$(NAME) : $(OBJ)
+		ar rcs $(NAME) $(OBJ)
+		ranlib $(NAME)
 
-server: server.o
-		@make -C libft
-		@make -C printf
-		${CC} ${CFLAGS} $? -Llibft -lft -Lprintf -lftprintf -o server
-
-client: client.o
-		@make -C libft
-		@make -C printf
-		${CC} ${CFLAGS} $? -Llibft -lft -Lprintf -lftprintf -o client
-
-libft:
-		make -C libft
-
-printf:
-		make -C printf
+%.o : %.c
+	@echo "Coverting .c files to .o files"
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		make clean -C libft
-		make clean -C printf
-		rm -f ${OBJ}
+	rm -f $(OBJ)
 
-fclean:	clean
-		rm -f server client
+fclean: clean
+	rm -f $(NAME) test
 
-re:		fclean all
+re: fclean $(NAME)
 
-.PHONY:	libft printf
+.PHONY: all clean fclean re
