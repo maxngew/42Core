@@ -6,14 +6,14 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 19:53:07 by jngew             #+#    #+#              #
-#    Updated: 2024/08/21 22:17:41 by jngew            ###   ########.fr        #
+#    Updated: 2024/08/22 18:57:35 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 SRC = server.c client.c
 OBJ = $(SRC:%.c=%.o)
 
@@ -41,6 +41,12 @@ libft:
 printf:
 		make -C printf
 
+norminette:
+		@echo "Norminette all files"
+		norminette -R CheckForbiddenSourceHeader ${SRC} libft/*.c printf/*.c
+		@echo "Norminette header files"
+		norminette -R CheckDefine minitalk.h libft/*.h printf/*.h
+
 clean:
 		make clean -C libft
 		make clean -C printf
@@ -51,4 +57,4 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY:	libft printf
+.PHONY:	libft printf norminette
