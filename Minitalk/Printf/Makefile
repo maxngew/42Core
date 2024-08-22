@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 16:50:20 by jngew             #+#    #+#              #
-#    Updated: 2024/06/25 22:29:37 by jngew            ###   ########.fr        #
+#    Updated: 2024/08/22 19:11:00 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME) test
+	rm -f $(NAME)
 
 re: fclean $(NAME)
 

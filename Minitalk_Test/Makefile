@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 19:53:07 by jngew             #+#    #+#              #
-#    Updated: 2024/08/22 18:57:35 by jngew            ###   ########.fr        #
+#    Updated: 2024/08/22 19:22:50 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,8 @@ clean:
 
 fclean:	clean
 		rm -f server client
+		make fclean -C libft
+		make fclean -C printf
 
 re:		fclean all
 
