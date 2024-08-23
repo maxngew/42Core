@@ -9,7 +9,7 @@ fi
 #{
 #	local cmd="$1"
 #	echo "Running with Valgrind:"
-#	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose $cmd
+#	valgrind --leak-check=full --show-leak-kinds=all $cmd
 #}
 
 PID=$1
