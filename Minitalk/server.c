@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 20:27:01 by jngew             #+#    #+#             */
-/*   Updated: 2024/08/24 18:44:15 by jngew            ###   ########.fr       */
+/*   Updated: 2024/08/27 22:59:24 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ int	main(void)
 	sigaction(SIGUSR1, &signal_received, NULL);
 	sigaction(SIGUSR2, &signal_received, NULL);
 	while (1)
-		usleep(50);
+		pause ();
 }
