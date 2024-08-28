@@ -75,5 +75,5 @@ int	main(void)
 	sigaction(SIGUSR1, &signal_received, NULL);
 	sigaction(SIGUSR2, &signal_received, NULL);
 	while (1)
-		usleep (100);
+		usleep (1000);
 }
