@@ -6,14 +6,14 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 19:53:07 by jngew             #+#    #+#              #
-#    Updated: 2024/08/22 19:22:50 by jngew            ###   ########.fr        #
+#    Updated: 2024/08/28 17:19:46 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g
 SRC = server.c client.c
 OBJ = $(SRC:%.c=%.o)
 
