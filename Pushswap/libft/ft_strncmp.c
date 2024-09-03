@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 19:48:02 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/03 18:04:20 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/15 21:38:42 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/28 16:47:03 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <signal.h>
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+#include "libft.h"
 
-#endif
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
+{
+	size_t	x;
+
+	x = 0;
+	while ((str1[x] || str2[x]) && x < n)
+	{
+		if ((unsigned char) str1[x] != (unsigned char) str2[x])
+		{
+			return ((unsigned char) str1[x] - (unsigned char) str2[x]);
+		}
+		x++;
+	}
+	return (0);
+}

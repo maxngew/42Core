@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 19:48:02 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/03 18:04:20 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/13 18:36:19 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/22 01:20:22 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <signal.h>
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+#include "libft.h"
 
-#endif
+size_t	ft_strlen(const char *str)
+{
+	size_t	x;
+
+	x = 0;
+	while (str[x] != '\0')
+	{
+		x++;
+	}
+	return (x);
+}

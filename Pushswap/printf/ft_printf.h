@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 19:48:02 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/03 18:04:20 by jngew            ###   ########.fr       */
+/*   Created: 2024/06/04 13:08:30 by jngew             #+#    #+#             */
+/*   Updated: 2024/06/25 22:00:39 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
 # include <unistd.h>
+# include <stddef.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <signal.h>
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+# include <string.h>
+
+int		ft_printf(const char *str, ...);
+void	ft_char(char c, size_t *len);
+void	ft_str(char *str, size_t *len);
+void	ft_ptr(void *ptr, size_t *len);
+void	ft_nbr(int n, size_t *len);
+void	ft_unsignednbr(unsigned int n, size_t *len);
+void	ft_hexlower(unsigned int n, size_t *len);
+void	ft_hexupper(unsigned int n, size_t *len);
 
 #endif

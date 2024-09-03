@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_unsignednbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 19:48:02 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/03 18:04:20 by jngew            ###   ########.fr       */
+/*   Created: 2024/06/05 14:01:43 by jngew             #+#    #+#             */
+/*   Updated: 2024/06/05 15:59:00 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <signal.h>
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+#include "ft_printf.h"
 
-#endif
+void	ft_unsignednbr(unsigned int n, size_t *len)
+{
+	if (n > 9)
+	{
+		ft_unsignednbr(n / 10, len);
+		ft_unsignednbr(n % 10, len);
+	}
+	else
+	{
+		ft_char(n + 48, len);
+	}
+}

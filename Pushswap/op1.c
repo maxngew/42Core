@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   op1.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 19:48:02 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/03 18:04:20 by jngew            ###   ########.fr       */
+/*   Created: 2024/09/03 17:50:15 by jngew             #+#    #+#             */
+/*   Updated: 2024/09/04 01:54:51 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <signal.h>
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+#include "push_swap.h"
 
-#endif
+void	ft_swapa(t_stack **a, int x)
+{
+	t_stack	*temp;
+
+	if (!*a || !(*a)->next)
+		return ;
+	temp = *a;
+	*a = ft_lstlast(*a);
+	(*a)->next = temp;
+	*a = tmp->next;
+	tmp->next = NULL;
+	if (x == 0)
+		ft_printf ("ra\n");
+}
+
+void	ft_

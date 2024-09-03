@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 19:48:02 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/03 18:04:20 by jngew            ###   ########.fr       */
+/*   Created: 2024/05/16 16:56:10 by jngew             #+#    #+#             */
+/*   Updated: 2024/05/28 16:44:45 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <signal.h>
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+#include "libft.h"
 
-#endif
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
+{
+	unsigned char	*str_x;
+	unsigned char	*str_y;
+	size_t			x;
+
+	str_x = (unsigned char *)str1;
+	str_y = (unsigned char *)str2;
+	x = 0;
+	while (x < n)
+	{
+		if ((unsigned char)str_x[x] != (unsigned char)str_y[x])
+		{
+			return ((unsigned char)str_x[x] - (unsigned char)str_y[x]);
+		}
+		x++;
+	}
+	return (0);
+}
