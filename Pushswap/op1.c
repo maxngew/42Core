@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 17:50:15 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/06 20:53:32 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/09 23:30:29 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	ft_rev_rotatea(t_stack **a, int x)
 	t_stack	*temp;
 	int		y;
 
+	y = 0;
 	if (!*a || !(*a)->next)
 		return ;
-	y = 0;
 	temp = *a;
 	while ((*a)->next)
 	{
