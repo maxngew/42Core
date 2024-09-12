@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   do_op.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 16:45:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/11 16:10:31 by jngew            ###   ########.fr       */
+/*   Created: 2024/09/11 13:47:41 by jngew             #+#    #+#             */
+/*   Updated: 2024/09/11 14:00:16 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-
-	a = ft_process(argc, argv)
-		if (!a || ft_checkdup(a))
+	if (argc == 4)
 	{
-		ft_free(&a);
-		ft_error();
+		if (argv[2][0] == '+')
+			printf("%d", (atoi(argv[1]) + atoi(argv[3])));
+		if (argv[2][0] == '-')
+			printf("%d", (atoi(argv[1]) - atoi(argv[3])));
+		if (argv[2][0] == '*')
+			printf("%d", (atoi(argv[1]) * atoi(argv[3])));
+		if (argv[2][0] == '/')
+			printf("%d", (atoi(argv[1]) / atoi(argv[3])));
+		if (argv[2][0] == '%')
+			printf("%d", (atoi(argv[1]) % atoi(argv[3])));
 	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
-	ft_free(&a);
+	printf("\n");
 	return (0);
 }

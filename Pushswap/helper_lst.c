@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   helper_lst.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 16:45:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/11 16:10:31 by jngew            ###   ########.fr       */
+/*   Created: 2024/09/11 23:39:09 by jngew             #+#    #+#             */
+/*   Updated: 2024/09/12 12:41:07 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_min(t_stack *a)
 {
-	t_stack	*a;
+	int	x;
 
-	a = ft_process(argc, argv)
-		if (!a || ft_checkdup(a))
+	x = a->number;
+	while (a)
 	{
-		ft_free(&a);
-		ft_error();
+		if (a->number < x)
+			x = a->number;
+		a = a->next;
 	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	return (x);
+}
+
+int	ft_max(t_stack *a)
+{
+	int	x;
+
+	x = a->number;
+	while (a)
+	{
+		if (a->number > x)
+			x = a->number;
+		a = a->next;
+	}
+	return (x);
 }

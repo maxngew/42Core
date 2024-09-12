@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 16:45:07 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/11 16:10:31 by jngew            ###   ########.fr       */
+/*   Created: 2024/09/11 23:15:43 by jngew             #+#    #+#             */
+/*   Updated: 2024/09/11 23:17:19 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_lstsize(t_list *list)
 {
-	t_stack	*a;
+	t_list	*current;
+	int		size;
 
-	a = ft_process(argc, argv)
-		if (!a || ft_checkdup(a))
+	size = 0;
+	current = list;
+	while (current != NULL)
 	{
-		ft_free(&a);
-		ft_error();
+		current = current->next;
+		size++;
 	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	return (size);
 }
