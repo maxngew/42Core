@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 22:51:53 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/11 23:24:42 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/14 17:06:00 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void	ft_freestr(char **list)
 	*list = NULL;
 }
 
-void	list_args(char **argv, t_stack **stack_a)
+void	list_args(char **argv, t_stack *a)
 {
 	long	x;
 
 	x = 1;
 	while (argv[x] != NULL)
 	{
-		ft_addback(stack_a, ft_stacknew(ft_atoi(argv[x])));
+		ft_addback(a, ft_stacknew(ft_atoi(argv[x])));
 		x++;
 	}
 }
