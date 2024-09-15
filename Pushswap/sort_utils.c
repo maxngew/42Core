@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 16:52:47 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/14 17:29:16 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/15 23:00:36 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,16 @@ void	ft_sort(t_stack **a)
 			while ((*a)->number != ft_min(*a))
 				ft_rev_rotatea(a, 0);
 		}
+	}
+}
+
+t_stack	**ft_sort_a(t_stack **a, t_stack **b)
+{
+	int		x;
+	t_stack	*temp;
+
+	while (*b)
+	{
+		temp = *b;
 	}
 }
