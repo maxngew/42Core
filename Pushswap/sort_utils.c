@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 16:52:47 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/16 16:56:11 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 18:46:41 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_sort_b3(t_stack **a, t_stack **b)
 				x = ft_revrot_rrarrb(a, b, temp->number, 'a');
 			else if (x == ft_rrarb_b(*a, *b, temp->number))
 				x = ft_opprot_rrarb(a, b, temp->number, 'a');
-			else if (x == ft_rarrb(*a, *b, temp->number))
+			else if (x == ft_rarrb_b(*a, *b, temp->number))
 				x = ft_splitrot_rarrb(a, b, temp->number, 'a');
 			else
 				temp = temp->next;
@@ -107,7 +107,7 @@ void	ft_sort(t_stack **a)
 	int		x;
 
 	b = NULL;
-	if (ft_lstlast(*a) == 2)
+	if (ft_lstsize(*a) == 2)
 		ft_swapa(a, 0);
 	else
 	{

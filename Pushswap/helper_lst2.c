@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   helper_lst2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 23:15:43 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/11 23:17:19 by jngew            ###   ########.fr       */
+/*   Created: 2024/09/16 18:09:09 by jngew             #+#    #+#             */
+/*   Updated: 2024/09/16 18:22:08 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *list)
+t_stack	*ft_lstlast(t_stack *list)
 {
-	t_list	*current;
+	t_stack	*current;
+
+	if (!list)
+		return (NULL);
+	current = list;
+	while (current->next)
+		current = current->next;
+	return (current);
+}
+
+int	ft_lstsize(t_stack *list)
+{
+	t_stack	*current;
 	int		size;
 
 	size = 0;

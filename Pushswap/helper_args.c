@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 22:51:53 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/14 17:06:00 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 18:37:38 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_freestr(char **list)
 	*list = NULL;
 }
 
-void	list_args(char **argv, t_stack *a)
+void	list_args(char **argv, t_stack **a)
 {
 	long	x;
 
@@ -42,15 +42,12 @@ void	list_args(char **argv, t_stack *a)
 t_stack	*ft_buildstack(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	int		x;
-	int		y;
 
-	x = 0;
 	stack_a = NULL;
-	if (argv < 2)
+	if (argc < 2)
 		ft_error ();
 	else if (argc == 2)
-		stack_a = ft_parse_args_quoted(argv);
+		stack_a = ft_buildstack_args(argv);
 	else
 		list_args(argv, &stack_a);
 	return (stack_a);
@@ -60,11 +57,8 @@ t_stack	*ft_buildstack_args(char **argv)
 {
 	t_stack	*stack_a;
 	char	**temp;
-	int		x;
-	int		y;
 
 	stack_a = NULL;
-	x = 0;
 	temp = ft_split(argv[1], 32);
 	list_args(temp, &stack_a);
 	ft_freestr(temp);

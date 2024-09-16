@@ -6,7 +6,7 @@
 #    By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 15:58:15 by jngew             #+#    #+#              #
-#    Updated: 2024/09/16 17:25:29 by jngew            ###   ########.fr        #
+#    Updated: 2024/09/16 18:22:22 by jngew            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,21 +16,21 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = check_utils.c checks.c free_error.c helper_ab.c helper_ba.c helper_args.c helper_ft.c helper_lst.c op1.c op2.c op3.c push_swap.c rotate_utils.c rotate.c sort_utils.c
+SRC = checks_utils.c checks.c free_error.c helper_ab.c helper_ba.c helper_args.c helper_ft.c helper_lst.c helper_lst2.c op1.c op2.c op3.c push_swap.c rotate_utils.c rotate.c sort_utils.c
 
 OBJ = ${SRC:%.c=%.o}
 
 all: ${NAME}
 
 %.o: %.c
-		@echo "Coverting .c files to .c files"
+		@echo "Coverting .c files to .o files"
 		@${CC} ${CFLAGS} -Ilibft -Iprintf -c $< -o $@
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJ}
 			@echo "Building..."
 			@make -C libft > /dev/null
 			@make -C printf > /dev/null
-			${CC} ${CFLAGS} $^ -Llibft -lft -Lprintf -lftprintf -o ${NAME}
+			${CC} ${CFLAGS} ${OBJ} -Llibft -lft -Lprintf -lftprintf -o ${NAME}
 			@echo "Built successfully"
 
 libft:

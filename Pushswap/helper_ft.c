@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:32:19 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/12 16:29:43 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 18:32:32 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_addback(t_stack **stack, t_stack *stack_new)
 		(ft_lstlast(*stack))->next = stack_new;
 }
 
-t_stack	*ft_newstack(int data)
+t_stack	*ft_stacknew(int data)
 {
 	t_stack	*new;
 

@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 00:29:17 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/11 16:18:11 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 17:46:52 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_checksorted(t_stack	*a)
 		if (x > a->number)
 			return (0);
 		x = a->number;
-		a = a->number;
+		a = a->next;
 	}
 	return (1);
 }

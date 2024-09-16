@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 16:46:09 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/16 17:03:49 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 18:42:57 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+# include "../Libft/libft.h"
+# include "../Printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -28,6 +28,12 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_checkdup(t_stack *a);
 int		ft_checksorted(t_stack *a);
@@ -51,7 +57,7 @@ int		ft_rrarrb_a(t_stack *a, t_stack *b, int x);
 int		ft_rarrb_a(t_stack *a, t_stack *b, int x);
 int		ft_rrarb_a(t_stack *a, t_stack *b, int x);
 void	ft_addback(t_stack **stack, t_stack *stack_new);
-t_stack	*ft_newstack(int data);
+t_stack	*ft_stacknew(int data);
 int		ft_atoi2(const char *str);
 t_stack	*ft_subprocess(char **argv);
 t_stack	*ft_process(int argc, char **argv);
@@ -60,10 +66,12 @@ int		ft_max(t_stack *a);
 int		ft_findindex(t_stack *a, int num);
 int		ft_findplace_b(t_stack *b, int num_push);
 int		ft_findplace_a(t_stack *a, int num_push);
+t_stack	*ft_lstlast(t_stack *list);
+int		ft_lstsize(t_stack *list);
 void	ft_swapa(t_stack **a, int x);
 void	ft_pusha(t_stack **a, t_stack **b, int x);
 void	ft_rotatea(t_stack **a, int x);
-void	ft_rev_rotate(t_stack **a, int x);
+void	ft_rev_rotatea(t_stack **a, int x);
 void	ft_swapb(t_stack **b, int x);
 void	ft_pushb(t_stack **a, t_stack **b, int x);
 void	ft_rotateb(t_stack **b, int x);

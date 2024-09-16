@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 22:42:38 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/15 22:59:47 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 18:45:14 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_rotate_ab(t_stack *a, t_stack *b)
 		if (x > ft_rarb_b(a, b, temp->number))
 			x = ft_rarb_b(a, b, temp->number);
 		if (x > ft_rrarrb_b(a, b, temp->number))
-			x = ft_rrarrb(a, b, temp->number);
+			x = ft_rrarrb_b(a, b, temp->number);
 		if (x > ft_rarrb_b(a, b, temp->number))
 			x = ft_rarrb_b(a, b, temp->number);
 		if (x > ft_rrarb_b(a, b, temp->number))
