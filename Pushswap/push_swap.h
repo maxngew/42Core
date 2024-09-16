@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 16:46:09 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/14 17:22:41 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 17:03:49 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,16 @@ void	ft_ss_ab(t_stack **a, t_stack **b, int x);
 void	ft_rr_ab(t_stack **a, t_stack **b, int x);
 void	ft_rrr_ab(t_stack **a, t_stack **b, int x);
 void	ft_rrr_absub(t_stack **b, int x);
+int		ft_rot_rarb(t_stack **a, t_stack **b, int x, char c);
+int		ft_revrot_rrarrb(t_stack **a, t_stack **b, int x, char c);
+int		ft_opprot_rrarb(t_stack **a, t_stack **b, int x, char c);
+int		ft_splitrot_rarrb(t_stack **a, t_stack **b, int x, char c);
+int		ft_rotate_ba(t_stack *a, t_stack *b);
+int		ft_rotate_ab(t_stack *a, t_stack *b);
+void	ft_sort_three(t_stack **a);
+void	ft_sort_b3(t_stack **a, t_stack **b);
+t_stack	**ft_sort_a(t_stack **a, t_stack **b);
+t_stack	*ft_sort_b(t_stack **a);
+void	ft_sort(t_stack **a);
 
 #endif

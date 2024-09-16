@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:17:01 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/12 16:31:15 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/16 17:21:08 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstlast(t_list *list);
-int		*ft_lstsize(t_list *list);
+int		ft_lstsize(t_list *list);
 
 #endif
