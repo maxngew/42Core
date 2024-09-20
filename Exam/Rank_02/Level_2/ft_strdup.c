@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 19:41:18 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/17 19:48:07 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/20 12:49:42 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strdup(char *src)
 		return (NULL);
 	while (src[x])
 	{
-		dest[x] == src[x];
+		dest[x] = src[x];
 		x++;
 	}
 	dest[x] = '\0';
