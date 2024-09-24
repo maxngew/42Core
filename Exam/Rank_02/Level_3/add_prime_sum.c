@@ -46,7 +46,7 @@ int	is_prime(int num)
 			return (0);
 		x++;
 	}
-	return (x);
+	return (1);
 }
 
 void	put_nbr(int n)
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 		}
 		put_nbr(sum);
 	}
-	if (argc != 2)
+	else
 		put_nbr(0);
 	write (1, "\n", 1);
 	return (0);
