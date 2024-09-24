@@ -1,14 +1,33 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 17:04:03 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/01 18:48:47 by jngew            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/*
+Assignment name  : rotone
+Expected files   : rotone.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program that takes a string and displays it, replacing each of its
+letters by the next one in alphabetical order.
+
+'z' becomes 'a' and 'Z' becomes 'A'. Case remains unaffected.
+
+The output will be followed by a \n.
+
+If the number of arguments is not 1, the program displays \n.
+
+Example:
+
+$>./rotone "abc"
+bcd
+$>./rotone "Les stagiaires du staff ne sentent pas toujours tres bon." | cat -e
+Mft tubhjbjsft ev tubgg of tfoufou qbt upvkpvst usft cpo.$
+$>./rotone "AkjhZ zLKIJz , 23y " | cat -e
+BlkiA aMLJKa , 23z $
+$>./rotone | cat -e
+$
+$>
+$>./rotone "" | cat -e
+$
+$>
+*/
 
 #include <unistd.h>
 
@@ -21,7 +40,7 @@ int	main(int argc, char **argv)
 	{
 		while (argv[1][x])
 		{
-			if ((argv[1][x] >= 'a' && argv[1][x] <= 'y') 
+			if ((argv[1][x] >= 'a' && argv[1][x] <= 'y')
 				|| (argv[1][x] >= 'A' && argv[1][x] <= 'Y'))
 				argv[1][x] += 1;
 			else if (argv[1][x] == 'z' || argv[1][x] == 'Z')

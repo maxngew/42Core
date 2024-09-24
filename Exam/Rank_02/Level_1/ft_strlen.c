@@ -1,14 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 16:10:14 by jngew             #+#    #+#             */
-/*   Updated: 2024/08/13 16:47:04 by jngew            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/*
+Assignment name  : ft_strlen
+Expected files   : ft_strlen.c
+Allowed functions:
+--------------------------------------------------------------------------------
+
+Write a function that returns the length of a string.
+
+Your function must be declared as follows:
+
+int	ft_strlen(char *str);
+*/
 
 #include <unistd.h>
 
