@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		x = 0;
+		count = 0;
 		while (argv[1][x] == 32 || argv[1][x] == 9)
 			x++;
 		while (argv[1][x])

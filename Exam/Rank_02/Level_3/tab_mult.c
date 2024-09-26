@@ -82,10 +82,12 @@ int	main(int argc, char **argv)
 	int	x;
 	int	nbr;
 
-	x = 1;
-	nbr = ft_atoi(argv[1]);
-	if (argc > 1)
+	if (argc != 2)
+		write (1, "\n", 1);
+	else
 	{
+		x = 1;
+		nbr = ft_atoi(argv[1]);
 		while (x <= 9 && nbr <= 238609183)
 		{
 			ft_putnbr(x);
@@ -94,9 +96,8 @@ int	main(int argc, char **argv)
 			write (1, " = ", 3);
 			ft_putnbr(x * nbr);
 			write (1, "\n", 1);
-			x += 1;
+			x++;
 		}
 	}
-	write (1, "\n", 1);
 	return (0);
 }

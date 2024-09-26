@@ -40,7 +40,7 @@ char	**ft_split(char *str)
 			x++;
 		if (str[x])
 			wc++;
-		while (str[x] && (str[x] != 32 || str[x] != 9 || str[x] != '\n'))
+		while (str[x] && (str[x] != 32 && str[x] != 9 && str[x] != '\n'))
 			x++;
 	}
 	char **out = (char **)malloc(sizeof(char *) * (wc + 1));
@@ -49,8 +49,8 @@ char	**ft_split(char *str)
 	{
 		while (str[x] && (str[x] == 32 || str[x] == 9 || str[x] == '\n'))
 			x++;
-		y++;
-		while (str[x] && (str[x] != 32 || str[x] != 9 || str[x] != '\n'))
+		y = x;
+		while (str[x] && (str[x] != 32 && str[x] != 9 && str[x] != '\n'))
 			x++;
 		if (x > y)
 		{

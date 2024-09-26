@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 		while (x < argc)
 		{
 			rstr_cap(argv[x]);
-			x += 1;
+			x++;
 		}
 	}
 	write (1, "\n", 1);

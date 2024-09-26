@@ -25,27 +25,20 @@ Examples:
 int	*ft_rrange(int start, int end)
 {
 	int	x;
-	int	step;
-	int	*range;
-	int	n;
+	int	len;
+	int	*res;
 
 	x = 0;
-	step = 1;
-	n = end - start;
-	if (n < 0)
-		(n *= -1);
-	n++;
-	range = (int *)malloc(sizeof(int) * n);
-	if (range)
+	len = abs(end - start) + 1;
+	res = (int *)malloc(sizeof(int) * len);
+	while (x < len)
 	{
+		res[x] = end;
 		if (start < end)
-			step = -1;
-		while (x < n)
-		{
-			range[x] = end;
-			end += step;
-			x++;
-		}
+			end--;
+		else
+			end++;
+		x++;
 	}
-	return (range);
+	return (res);
 }
