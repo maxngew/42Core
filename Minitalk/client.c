@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 20:27:08 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/05 17:18:17 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/30 16:10:52 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,12 @@ void	pid_checker(int serv_id)
 	}
 }
 
+void	ack_handler(int signum)
+{
+	if (signum == SIGUSR1)
+		ft_printf("Server acknowledged the message.\n");
+}
+
 int	main(int argc, char **argv)
 {
 	char	*message;
@@ -81,6 +87,7 @@ int	main(int argc, char **argv)
 			ft_printf("[ERROR] No message provided.\n");
 			return (1);
 		}
+		signal (SIGUSR1, ack_handler);
 		send_signals(serv_id, message);
 	}
 	else

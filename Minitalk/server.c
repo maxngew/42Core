@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 20:27:01 by jngew             #+#    #+#             */
-/*   Updated: 2024/09/04 15:42:54 by jngew            ###   ########.fr       */
+/*   Updated: 2024/09/30 17:25:23 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ char	*store_str(char const *s1, char const letter)
 	return (store);
 }
 
-void	signal_handler(int signum)
+void	signal_handler(int signum, siginfo_t *info, void *context)
 {
 	static int	counter = 0;
 	static int	res = 0;
 	static char	*final = NULL;
 
+	(void)context;
 	if (!final)
 		final = ft_strdup("");
 	process_signal(signum, &res, &counter);
@@ -57,6 +58,7 @@ void	signal_handler(int signum)
 			ft_printf("%s\n", final);
 			free (final);
 			final = NULL;
+			kill (info->si_pid, SIGUSR1);
 		}
 		counter = 0;
 		res = 0;
@@ -70,8 +72,8 @@ int	main(void)
 	ft_printf("Welcome to Max's Minitalk Server\n");
 	ft_printf("Server's PID is: %d\n", getpid());
 	sigemptyset(&signal_received.sa_mask);
-	signal_received.sa_handler = signal_handler;
-	signal_received.sa_flags = 0;
+	signal_received.sa_sigaction = signal_handler;
+	signal_received.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &signal_received, NULL);
 	sigaction(SIGUSR2, &signal_received, NULL);
 	while (1)
