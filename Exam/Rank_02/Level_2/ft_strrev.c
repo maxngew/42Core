@@ -31,3 +31,12 @@ char	*ft_strrev(char *str)
 	}
 	return (str);
 }
+
+
+int	main(void)
+{
+	char str[] = "Hello";
+
+	printf("%s\n", ft_strrev(str));
+	return (0);
+}

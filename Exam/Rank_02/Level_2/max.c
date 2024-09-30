@@ -32,3 +32,13 @@ int	max(int *tab, unsigned int len)
 	}
 	return (results);
 }
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int tab[] = {0, 1, 2, 3, 4, 5};
+	unsigned int	len = 6;
+
+	printf("%d\n", max(tab, len));
+}

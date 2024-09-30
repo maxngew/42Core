@@ -28,14 +28,14 @@ $>
 
 #include <unistd.h>
 
-void	last_word(char *str)
+void	lastword(char *str)
 {
 	int	x = 0;
 	int	y = 0;
 
 	while (str[x])
 	{
-		if (str[x] == 32 && str[x + 1] >= 33 && str[x + 1] <= 126)
+		if ((str[x] == 32 || str[x] == 9) && str[x + 1] >= 33 && str[x + 1] <= 126)
 			y = x + 1;
 		x++;
 	}
@@ -49,7 +49,7 @@ void	last_word(char *str)
 int	main(int argc, char **argv)
 {
 	if (argc == 2)
-		last_word(argv[1]);
+		lastword(argv[1]);
 	write (1, "\n", 1);
 	return (0);
 }

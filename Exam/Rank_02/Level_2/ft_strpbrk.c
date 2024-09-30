@@ -10,6 +10,13 @@ Reproduce exactly the behavior of the function strpbrk
 The function should be prototyped as follows:
 
 char	*ft_strpbrk(const char *s1, const char *s2);
+
+DESCRIPTION
+     The strpbrk() function locates in the null-terminated string
+     s the first occurrence of any character in the string
+     charset and returns a pointer to this character.  If no
+     characters from charset occur anywhere in s strpbrk()
+     returns NULL.
 */
 
 #include <string.h>

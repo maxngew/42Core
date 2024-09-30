@@ -45,13 +45,11 @@ char	*rev_print(char *str)
 	x = 0;
 	while (str[x])
 		x++;
-	while (x > 0)
+	while (x >= 0)
 	{
-		x--;
 		write (1, &str[x], 1);
+		x--;
 	}
-	if (str[0])
-		write (1, &str[0], 1);
 	return (str);
 }
 
