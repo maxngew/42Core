@@ -48,8 +48,9 @@ int	main(int argc, char **argv)
 		number = atoi(argv[1]);
 		if (number == 1)
 			printf("1");
-		while (number >= ++x)
+		while (number >= x)
 		{
+			x++;
 			if (number % x == 0)
 			{
 				printf("%d", x);

@@ -20,9 +20,12 @@ char    **ft_split(char *str);
 
 char	*ft_strncpy(char *s1, char *s2, int n)
 {
-	int	x = -1;
-	while (++x < n && s2[x])
+	int	x = 0;
+	while (x < n && s2[x])
+	{
 		s1[x] = s2[x];
+		x++;
+	}
 	s1[x]= '\0';
 	return (s1);
 }
@@ -60,4 +63,21 @@ char	**ft_split(char *str)
 	}
 	out[z] = NULL;
 	return (out);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char str[] = "Hello\tWorld\n42 is \tawesome!";
+	char **split = ft_split(str);
+	int i = 0;
+
+	// Print the result of ft_split
+	while (split[i])
+	{
+		printf("Word %d: %s\n", i + 1, split[i]);
+		i++;
+	}
+	return (0);
 }
