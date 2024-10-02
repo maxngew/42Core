@@ -55,10 +55,11 @@ int	main(int argc, char **argv)
 		int x = 1;
 		while (x < argc)
 		{
-			str_cap(argv[x]);
-			x++;
+			str_cap(argv[x++]);
+			write (1, "\n", 1);
 		}
 	}
-	write (1, "\n", 1);
+	else
+		write (1, "\n", 1);
 	return (0);
 }
