@@ -50,3 +50,22 @@ size_t	ft_strcspn(const char *s, const char *reject)
 	}
 	return (x);
 }
+
+#include <stdio.h>
+int	main(void)
+{
+	const char *str1 = "Hello, World!";
+	const char *reject1 = "W";
+	const char *reject2 = "o!";
+	const char *reject3 = "xyz";
+	const char *reject4 = "H";
+	const char *reject5 = "";
+
+	printf("First occurrence of '%s' in \"%s\": %zu\n", reject1, str1, ft_strcspn(str1, reject1));
+	printf("First occurrence of '%s' in \"%s\": %zu\n", reject2, str1, ft_strcspn(str1, reject2));
+	printf("First occurrence of '%s' in \"%s\": %zu\n", reject3, str1, ft_strcspn(str1, reject3));
+	printf("First occurrence of '%s' in \"%s\": %zu\n", reject4, str1, ft_strcspn(str1, reject4));
+	printf("First occurrence of '%s' in \"%s\": %zu\n", reject5, str1, ft_strcspn(str1, reject5));
+
+	return 0;
+}

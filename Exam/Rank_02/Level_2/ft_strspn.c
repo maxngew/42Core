@@ -57,3 +57,23 @@ size_t	ft_strspn(const char *s, const char *accept)
 	}
 	return (x);
 }
+
+#include <stdio.h>
+int	main(void)
+{
+	const char *str1 = "hello, world!";
+	const char *accept1 = "he";
+	const char *accept2 = "hello";
+	const char *accept3 = "xyz";
+	const char *accept4 = "";
+	const char *str2 = "12345abc";
+
+	printf("ft_strspn(\"%s\", \"%s\") = %zu\n", str1, accept1, ft_strspn(str1, accept1));
+	printf("ft_strspn(\"%s\", \"%s\") = %zu\n", str1, accept2, ft_strspn(str1, accept2));
+	printf("ft_strspn(\"%s\", \"%s\") = %zu\n", str1, accept3, ft_strspn(str1, accept3));
+	printf("ft_strspn(\"%s\", \"%s\") = %zu\n", str1, accept4, ft_strspn(str1, accept4));
+	printf("ft_strspn(\"%s\", \"%s\") = %zu\n", str2, "12345", ft_strspn(str2, "12345"));
+	printf("ft_strspn(\"%s\", \"%s\") = %zu\n", str2, "abc", ft_strspn(str2, "abc"));
+
+	return 0;
+}
