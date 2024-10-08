@@ -11,7 +11,7 @@ Your function must be declared as follows:
 char    *ft_strdup(char *src);
 */
 
-#include <unistd.h>
+#include <stdlib.h>
 
 char	*ft_strdup(char *src)
 {
