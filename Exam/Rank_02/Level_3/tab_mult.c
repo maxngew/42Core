@@ -83,7 +83,7 @@ int	main(int argc, char **argv)
 	{
 		x = 1;
 		nbr = ft_atoi(argv[1]);
-		while (x <= 9 && nbr <= 238609183)
+		while (x <= 9)
 		{
 			ft_putnbr(x);
 			write (1, " x ", 3);
