@@ -53,3 +53,18 @@ char	*ft_itoa(int nbr)
 	}
 	return (res);
 }
+
+#include <stdio.h>
+
+int main(void)
+{
+    int nbr1 = 123;
+    int nbr2 = -456;
+    int nbr3 = 0;
+
+    printf("123 as string: %s\n", ft_itoa(nbr1));
+    printf("-456 as string: %s\n", ft_itoa(nbr2));
+    printf("0 as string: %s\n", ft_itoa(nbr3));
+
+    return 0;
+}
