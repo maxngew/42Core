@@ -22,6 +22,14 @@ Examples:
 
 #include <stdlib.h>
 
+int	count_len(int start, int end)
+{
+	if (start <= end)
+		return (end - start + 1);
+	else
+		return (start - end + 1);
+}
+
 int	*ft_rrange(int start, int end)
 {
 	int	x;
@@ -29,7 +37,7 @@ int	*ft_rrange(int start, int end)
 	int	*res;
 
 	x = 0;
-	len = abs(end - start) + 1;
+	len = count_len(start, end) + 1;
 	res = (int *)malloc(sizeof(int) * len);
 	while (x < len)
 	{
@@ -41,4 +49,87 @@ int	*ft_rrange(int start, int end)
 		x++;
 	}
 	return (res);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	start = 5;
+	int	end = 10;
+	int	*result;
+	int	len;
+	int	i;
+
+	// Test 1: range from 5 to 10
+	len = count_len(start, end);
+	result = ft_rrange(start, end);
+	if (result)
+	{
+		printf("Range from %d to %d: ", start, end);
+		i = 0;
+		while (i < len)
+		{
+			printf("%d ", result[i]);
+			i++;
+		}
+		printf("\n");
+		free(result);
+	}
+
+	// Test 2: range from 10 to 5
+	start = 10;
+	end = 5;
+	len = count_len(start, end);
+	result = ft_rrange(start, end);
+	if (result)
+	{
+		printf("Range from %d to %d: ", start, end);
+		i = 0;
+		while (i < len)
+		{
+			printf("%d ", result[i]);
+			i++;
+		}
+		printf("\n");
+		free(result);
+	}
+
+	// Test 3: range from -3 to 3
+	start = -3;
+	end = 3;
+	len = count_len(start, end);
+	result = ft_rrange(start, end);
+	if (result)
+	{
+		printf("Range from %d to %d: ", start, end);
+		i = 0;
+		while (i < len)
+		{
+			printf("%d ", result[i]);
+			i++;
+		}
+		printf("\n");
+		free(result);
+	}
+
+	// Test 4: range from 0 to 0
+	start = 0;
+	end = 0;
+	len = count_len(start, end);
+	result = ft_rrange(start, end);
+	if (result)
+	{
+		printf("Range from %d to %d: ", start, end);
+		i = 0;
+		while (i < len)
+		{
+			printf("%d ", result[i]);
+			i++;
+		}
+		printf("\n");
+		free(result);
+	}
+
+	return (0);
 }
