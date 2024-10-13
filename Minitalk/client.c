@@ -6,7 +6,7 @@
 /*   By: jngew <jngew@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 20:27:08 by jngew             #+#    #+#             */
-/*   Updated: 2024/10/12 22:41:04 by jngew            ###   ########.fr       */
+/*   Updated: 2024/10/13 14:08:55 by jngew            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	send_signals(int pid, char *message)
 				kill (pid, SIGUSR1);
 			else if (((unsigned char)(message[letter] >> (7 - bit)) & 1) == 1)
 				kill (pid, SIGUSR2);
-			usleep(150);
+			usleep(400);
 		}
 		letter++;
 	}
@@ -35,7 +35,7 @@ void	send_signals(int pid, char *message)
 	while (bit++ < 8)
 	{
 		kill (pid, SIGUSR1);
-		usleep(150);
+		usleep(400);
 	}
 }
 
